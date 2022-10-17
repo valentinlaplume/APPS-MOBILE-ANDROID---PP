@@ -1,0 +1,73 @@
+<ion-content>
+    <ion-grid class="grid1">
+        <ion-row class="row1">
+        </ion-row>
+    </ion-grid>
+    
+    <ion-slide>
+        <div class="contaier-login">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-img  class="img" src="../../assets/aprende.png"></ion-img>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <h1 color="ligth">Iniciar sesión</h1>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-list> 
+                            <ion-item>
+                                <ion-icon name="person-outline" class="icon-login"></ion-icon>
+                                <ion-input  color="ligth"
+                                [(ngModel)]="this.email" 
+                                [ngModelOptions]="{standalone: true}"
+                                name="email" type="text" required placeholder="Correo electrónico"></ion-input>
+                            </ion-item>
+                            <br />
+                            <ion-item>
+                                <ion-icon name="lock-closed-outline" class="icon-login"></ion-icon>
+                                <ion-input color="ligth"
+                                [(ngModel)]="this.password" 
+                                [ngModelOptions]="{standalone: true}"
+                                name="password" type="password" required placeholder="Contraseña"></ion-input>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-button [disabled]="!email || !password" color="dark" type="submit" fill="solid" expand="full" (click)="onLogin()">
+                            Iniciar Sesión
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <div>
+                <ion-item>
+                    <ion-checkbox slot="start" (click)="onAdmin()"></ion-checkbox>
+                    <ion-label >Admin</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-checkbox slot="start" (click)="onTester()"></ion-checkbox>
+                    <ion-label >Tester</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-checkbox slot="start" (click)="onInvitado()"></ion-checkbox>
+                    <ion-label >Invitado</ion-label>
+                </ion-item>
+         
+                <!-- <ion-fab vertical=""   horizontal="start" edge slot="fixed" id="theme-selected">
+                    <ion-fab-button color="dark"   id="theme-showed">Accesos​​</ion-fab-button>
+                    <ion-fab-list side="end">
+                        <ion-fab-button color="light" (click)="onAdmin()">👨‍✈️</ion-fab-button>
+                        <ion-fab-button color="light" (click)="onTester()">👨‍💻​</ion-fab-button>
+                        <ion-fab-button color="light" (click)="onInvitado()">👨‍💼​</ion-fab-button>
+                    </ion-fab-list>
+                </ion-fab> -->
+            </div>
+        </div>
+    </ion-slide>

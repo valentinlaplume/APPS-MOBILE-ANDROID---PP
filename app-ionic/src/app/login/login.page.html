@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title align="center">Conversando en el Aula</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<br>
+
+<ion-content fullscreen="true" scroll-y="false">
+  <ion-list>
+    <ion-item>
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>Modo Oscuro</ion-label>
+      <ion-toggle slot="end" [ngModel]="darkMode" (ionChange)="change()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-input type="email" 
+      [(ngModel)]="this.email" 
+      [ngModelOptions]="{standalone: true}" 
+      required placeholder="ejemplo@ejemplo.com"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating" >Contraseña</ion-label>
+      <ion-input type="password" 
+      [(ngModel)]="this.password" 
+      [ngModelOptions]="{standalone: true}"
+      required placeholder=""></ion-input>
+    </ion-item>
+
+    <!-- <ion-item *ngIf="validaLogin != ''">
+      <label class="lbl-error" color="danger" mode="md">{{validaLogin}}</label>
+    </ion-item> -->
+    <ion-row *ngIf="validaLogin != ''" class="row-error">
+      <ion-col class="col-error">
+        <label class="lbl-error" color="danger" mode="md">{{validaLogin}}</label>
+      </ion-col>
+    </ion-row>
+    <br>
+
+    <ion-row *ngIf="muestroSpinner" class="item-spinner">
+      <ion-col>
+        <ion-spinner name="crescent"></ion-spinner>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="!email || !password" color="success" (click)="onSpinnerLogin()" expand="block">
+          Iniciar sesión
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align="center">
+        <ion-title>Accesos:</ion-title>
+        <ion-button class="primary btn-acceso" (click)="onLoginUsuarioAdministrador()" >Administrador</ion-button>
+        <ion-button class="primary btn-acceso" (click)="onLoginUsuarioModerador()" >Tester</ion-button>
+        <ion-button class="primary btn-acceso" (click)="onLoginUsuarioComun()" >Invitado</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+      <ion-col align="center">
+        <!-- <span class="center-span"></span> -->
+        <a class="ion-margin"  routerLink="../forgot-password">¿Has olvidado tu contraseña?</a>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>  
+        <span class="center-span">o</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>  
+        <ion-button (click)="onLoginGoogle()" color="danger" expand="block" >Iniciar sesión con Google</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col align="center">
+        <span >¿No tienes ninguna cuenta?</span>
+        <a class="ion-margin"  routerLink="../register">Regístrate</a>
+      </ion-col>
+    </ion-row>
+
+
+  </form>
+</ion-content>
+
+
+

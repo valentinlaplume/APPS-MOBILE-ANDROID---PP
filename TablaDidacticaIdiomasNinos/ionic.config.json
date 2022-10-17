@@ -1,0 +1,7 @@
+{
+  "name": "TablaDidacticaIdiomasNinos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

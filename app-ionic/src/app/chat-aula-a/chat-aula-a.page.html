@@ -1,0 +1,34 @@
+<ion-header> 
+    <ion-title (click)="scrollBottom()">
+      CHAT 4°A
+    </ion-title>
+    <ion-button color="black" class="button btn-volver" (click)="volver()">
+      &lt;
+    </ion-button>
+</ion-header>
+<ion-content scroll-y="false" color="medium" >
+  <ion-content class="ion-content-scroll-host" #content>
+      <div *ngFor="let item of listaMensajes" [ngClass]="item.emailUsuario != this.mailUsuarioLogeado ? 'mensajes end' : 'mensajes start'">
+        <div class="mensaje" [ngClass]="{'slide-right': true, '': '!hideTime'}">
+          <span [ngClass]="item.emailUsuario != this.mailUsuarioLogeado ? 'span-emisor' : 'span' ">
+            <div *ngIf="item.emailUsuario != this.mailUsuarioLogeado" [ngClass]="item.emailUsuario != this.mailUsuarioLogeado ? 'emisor' : 'yo' ">{{item.emailUsuario}}:</div>
+            <br><div [ngClass]="item.emailUsuario != this.mailUsuarioLogeado ? 'texto-mensaje-emisor' : 'texto-mensaje'">{{item.mensaje}}</div>
+            <div class="time right">{{item.fecha}}</div>
+          </span>
+        </div>
+      </div>
+    </ion-content>
+</ion-content>
+
+<ion-footer>
+  <ion-input type="text" class="mensajes-input"  [(ngModel)]="msjEnviar" [placeholder]="msjCantCaracteres > 21 ? 'Mensajes de hasta 21 caracteres' : 'Mensajes de hasta 21 caracteres...'" maxlength="21" (focus)="inputUp()" (blur)="inputDown()">
+  </ion-input>
+  <ion-button [disabled]="msjEnviar == ''" color="black" class="button btn-enviar" (click)="enviarMensaje()">
+    ✔
+  </ion-button>
+</ion-footer>
+
+
+<style>
+
+</style>

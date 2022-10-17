@@ -1,0 +1,26 @@
+
+
+<ion-content scroll-y="false">
+  <ion-card class="aula-rojo">
+    <ion-card-content (click)="onChatAulaA()">
+      <ion-card-title>PPS-4A</ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="aula-azul">
+    <ion-card-content (click)="onChatAulaB()">
+      <ion-card-title>PPS-4B</ion-card-title>
+      <!-- <ion-img src="../../assets/chat-aulas.png"></ion-img> -->
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button type="submit" color="black" expand="block" (click)="signOff()">
+    Cerrar Sesión
+  </ion-button>
+</ion-footer>
+<!-- <ion-title> {{this.authSvc.emailUser}}</ion-title> -->
+
+

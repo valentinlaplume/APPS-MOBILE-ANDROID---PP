@@ -1,0 +1,271 @@
+
+ion-fab-button{
+    font-size: 23px;
+}
+
+.fab-volver{
+    margin-bottom: 15px;
+}
+
+#theme-selected
+{
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+#language-selected
+{
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.container-header{
+    background-color: #95b8f6;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    text-align: center;
+}
+
+.img-idioma{
+    width: 100%;//100%!important; // 20%
+}
+
+ion-img {
+    width: 30%;//100%!important; // 20%
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-position: 50%;
+    border-radius: 10%;
+    background-size: 100% auto;
+}
+
+
+
+.img-idioma:hover {
+    box-shadow: 0 0 15px #fa5149;
+}
+.img-tema:hover {
+    box-shadow: 0 0 15px #fa5149;
+}
+
+.content-color{
+    background-color: rgb(178, 255, 178);
+}
+
+
+.img-animal{
+    width: 70%;
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    border: 2px solid white;
+    border-radius: 15px;
+}
+img{
+    width: 70%;
+}
+
+img, .img-animal{
+    background-color: rgb(21, 21, 21);
+}
+
+.al-lado-vertical{
+    display: inline-block;
+    padding: 2px;
+    margin: 10px 10px;
+}
+
+.container-idiomas{
+    margin: 10px 0px;
+}
+
+.container-temas{
+    margin: 10px 0px;
+}
+
+.container-animal{
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    background-image: url('../../assets/images/selva.jpg');
+    border-radius: 15px;
+    margin: 0px 15px;
+    margin-top: 30%;
+}
+.container-animal-hijo{
+    height: 100%;
+}
+
+.container-color{
+    text-align: center;
+    height: 100%;
+}
+
+.container-numero{
+    text-align: center;
+    height: 100%;
+    background: #f9a59a;
+    color: black;
+}
+
+.div-color{
+    width: 100%;
+    height: 20%;
+}
+
+.div-numero{
+    font-size: 100px;
+    width: 100%;
+    height: 20%;
+
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    border: 2px solid white;
+    border-radius: 5px;
+}
+#container-animal-responsive{
+    display: none; 
+}
+
+
+
+@media (max-width: 376px ) {
+    .div-numero{
+        font-size: 70px;
+    }
+    .img-animal{
+        width: 40%;
+    }
+
+    .container-animal{
+        margin-top: 13%;
+        height: 75%;
+    }
+
+
+}
+
+
+@media (max-height: 510px) or (max-width: 250px){
+    .div-numero{
+        padding-top: 40px;
+        font-weight: 700;
+        font-size: 50px;
+    }
+    .img-animal{
+        width: 10%;
+    }
+    .container-animal{
+        display: none;
+    }
+    #container-animal-responsive{
+        display: inline-block;
+    }
+}
+
+@media (max-height: 390px) {
+    .div-numero{
+        font-size: 40px;
+    }
+
+
+}
+
+@media (max-height: 330px) {
+    .div-numero{
+        font-size: 30px;
+    }
+}
+
+//--------------------------------------------
+// CELULAR ACOSTADO
+
+@media (min-width: 500px) and (max-width: 800px)
+{
+    #header-card
+    {
+        height: 3.5rem;
+        margin-top: 0.5rem;
+    }
+
+    #main-grid
+    {
+        display: none;
+    }
+
+    #main-grid2
+    {
+        display: block;
+        height: 100%;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 499px)
+{
+    // #header-card
+    // {
+    //     height: 3rem;
+    //     margin-top: 0.5rem;
+    // }
+
+    #main-grid
+    {
+        display: block;
+    }
+
+    #main-grid2
+    {
+        display: none;
+    }
+}
+
+#main-grid2
+{
+    width: 100%;
+    height: 95%;
+    text-align: center;
+    margin-top: -1rem;
+    background-image: url('../../assets/images/selva.jpg');
+}
+
+.col-main-grid2
+{
+    width: 100%;
+}
+
+.item-invertido
+{
+    border-radius: 10px;
+    width: 40%;
+    height: auto;
+    margin-left: 50%;
+    margin-bottom: 50px;
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+#pos1,#pos2
+{
+    margin-left: 2%;
+}
+
+#pos3{
+    margin-left: 20%;
+}
+
+.celda
+{
+    align-items: center;
+    text-align: center;
+    width: 225px;
+    height: 95px;
+}
+
+.fila
+{
+    text-align: center;
+    align-items: center;
+}
+
+
+

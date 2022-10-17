@@ -1,0 +1,51 @@
+ <ion-header>
+  <ion-toolbar>
+    <ion-title align="center">Registrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+<br>
+
+
+
+<ion-content>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-input type="email" #email required placeholder="ejemplo@ejemplo.com"></ion-input>
+    </ion-item>
+
+    <ion-label class="lbl-error" color="danger" mode="md">{{validaEmail}}</ion-label>
+
+    <ion-item lines="full">
+      <ion-label position="floating" >Contraseña</ion-label>
+      <ion-input type="password"  #password required placeholder=""></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating" >Confirmar Contraseña</ion-label>
+      <ion-input type="password"  #passwordConfirm required placeholder=""></ion-input>
+    </ion-item>
+
+    <label class="lbl-error" color="danger" mode="md">{{validaPass}}</label>
+
+    <br>
+
+    <ion-row>
+      <ion-col> 
+        <ion-button color="success"(click)="onRegister(email, password, passwordConfirm)" expand="block">Registrar</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col align="center">
+        <span class="center-span">¿Ya tienes una cuenta?</span>
+        <a class="ion-margin"  routerLink="../login">Inicia Sesión</a>
+      </ion-col>
+    </ion-row>
+    
+
+  </form>
+</ion-content>
+
+
+

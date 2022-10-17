@@ -1,0 +1,131 @@
+<!-- <div class="container-header"> 
+    <div class="container-idiomas"> 
+        <ion-img class="al-lado-vertical img-idioma" src="../assets/españa.png" (click)="onIdioma('es')"></ion-img>
+        <ion-img class="al-lado-vertical img-idioma" src="../assets/brasil.png" (click)="onIdioma('br')"></ion-img>
+        <ion-img class="al-lado-vertical img-idioma" src="../assets/eeuu.png" (click)="onIdioma('eu')"></ion-img>
+    </div>
+    <div class="container-temas"> 
+        <ion-img class="al-lado-vertical img-tema" src="../assets/btn-colores.png" (click)="onTema('col')"></ion-img>
+        <ion-img class="al-lado-vertical img-tema" src="../assets/btn-numeros.png" (click)="onTema('num')"></ion-img>
+        <ion-img class="al-lado-vertical img-tema" src="../assets/btn-animales.png" (click)="onTema('ani')"></ion-img>
+    </div>
+</div> -->
+<ion-fab vertical="" horizontal="start" edge slot="fixed" id="theme-selected">
+    <ion-fab-button color="dark" id="theme-showed">{{this.temaSrc}}​​</ion-fab-button>
+    <ion-fab-list side="bottom">
+        <ion-fab-button color="light" (click)="onTema('ani')">🐵</ion-fab-button>
+        <ion-fab-button color="light" (click)="onTema('col')">🟨​</ion-fab-button>
+        <ion-fab-button color="light" (click)="onTema('num')">1️⃣​</ion-fab-button>
+    </ion-fab-list>
+</ion-fab>
+
+<ion-fab class="redireccionador" vertical="bottom" horizontal="start" slot="fixed" (click)="logOut()">
+    <ion-fab-button color="dark">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+<ion-fab vertical="" horizontal="end" edge slot="fixed" id="language-selected">
+    <ion-fab-button color="dark" id="language-showed">
+        <ion-img class="al-lado-vertical img-idioma" [src]="this.idiomaSrc"></ion-img>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+        <ion-fab-button color="light" (click)="onIdioma('es')">
+            <ion-img class="al-lado-vertical img-idioma" src="../assets/españa.png"></ion-img>
+        </ion-fab-button>
+        <ion-fab-button color="light" (click)="onIdioma('br')">
+            <ion-img class="al-lado-vertical img-idioma" src="../assets/brasil.png"></ion-img>
+        </ion-fab-button>
+        <ion-fab-button color="light" (click)="onIdioma('eu')">
+            <ion-img class="al-lado-vertical img-idioma" src="../assets/eeuu.png"></ion-img>
+        </ion-fab-button>
+    </ion-fab-list>
+</ion-fab>
+
+<ion-content fullscreen="true" scroll-y="false">
+    <div *ngIf="tema == 'col'" class="container-color">
+        <div class="div-color" style="background: blue;" (click)="playColor('azul')"></div>
+        <div class="div-color" style="background: green;" (click)="playColor('verde')"></div>
+        <div class="div-color" style="background: yellow;" (click)="playColor('amarillo')"></div>
+        <div class="div-color" style="background: orange;" (click)="playColor('naranja')"></div>
+        <div class="div-color" style="background: red;" (click)="playColor('rojo')"></div>
+    </div>
+
+    <div *ngIf="tema == 'num'" class="container-numero">
+        <div class="div-numero"  (click)="playNumero('1')">1</div>
+        <div class="div-numero"  (click)="playNumero('2')">2</div>
+        <div class="div-numero"  (click)="playNumero('3')">3</div>
+        <div class="div-numero"  (click)="playNumero('4')">4</div>
+        <div class="div-numero"  (click)="playNumero('5')">5</div>
+    </div>
+
+    <div *ngIf="tema == 'ani'" class="container-animal" id="container-animal">
+        <div class="container-animal-hijo">
+            <ion-img class="al-lado-vertical img-animal" src="../assets/images/mono.png" (click)="playAnimal('mono')"></ion-img>
+            <ion-img class="al-lado-vertical img-animal" src="../assets/images/elefante.png" (click)="playAnimal('elefante')"></ion-img>
+            <div>
+                <ion-img class="al-lado-vertical img-animal" src="../assets/images/leon.png" (click)="playAnimal('leon')"></ion-img>
+            </div>
+            <ion-img class="al-lado-vertical img-animal" src="../assets/images/tigre.png" (click)="playAnimal('tigre')"></ion-img>
+            <ion-img class="al-lado-vertical img-animal" src="../assets/images/serpiente.png" (click)="playAnimal('serpiente')"></ion-img>
+        </div>
+    </div>
+
+    <ion-card id="content-main-card2" *ngIf="tema == 'ani'" id="container-animal-responsive">
+        <ion-grid id="main-grid2">
+
+          <ion-col class="col-main-grid2">
+            <ion-row class="fila">
+              <ion-row class="celda" id="pos1"><img class="item-invertido" id="item1-2" src="../assets/images/mono.png" (click)="playAnimal('mono')"></ion-row>
+              <ion-row class="celda" ><img class="item-invertido" id="item2-2" src="../assets/images/elefante.png" (click)="playAnimal('elefante')"></ion-row>
+              <ion-row class="celda" id="pos3"><img class="item-invertido" id="item3-2" src="../assets/images/leon.png" (click)="playAnimal('leon')"></ion-row>
+            </ion-row>
+          </ion-col>
+
+          <ion-col class="col-main-grid2">
+            <ion-row class="fila">
+              <ion-row class="celda" id="pos2"><img class="item-invertido" id="item4-2" src="../assets/images/tigre.png" (click)="playAnimal('tigre')"></ion-row>
+              <ion-row class="celda"><img class="item-invertido" id="item5-2" src="../assets/images/serpiente.png" (click)="playAnimal('serpiente')"></ion-row>
+            </ion-row>
+          </ion-col>
+
+        </ion-grid>
+      </ion-card>
+
+    <!-- <div *ngIf="tema == 'ani'" class="container-animal-responsive" >
+        <div class="container-animal-hijo-responsive">
+            <ion-img class=" img-animal" src="../assets/images/mono.png" (click)="playAnimal('mono')"></ion-img>
+            <ion-img class=" img-animal" src="../assets/images/elefante.png" (click)="playAnimal('elefante')"></ion-img>
+            <div>
+                <ion-img class=" img-animal" src="../assets/images/leon.png" (click)="playAnimal('leon')"></ion-img>
+            </div>
+            <ion-img class=" img-animal" src="../assets/images/tigre.png" (click)="playAnimal('tigre')"></ion-img>
+            <ion-img class=" img-animal" src="../assets/images/serpiente.png" (click)="playAnimal('serpiente')"></ion-img>
+        </div>
+    </div> -->
+
+    
+   
+</ion-content>
+
+
+<style>
+#main-grid2
+{
+    width: 100%;
+    height: 95%;
+    text-align: center;
+    margin-top: -1rem;
+    background-color: #ffffff;
+}
+
+.col-main-grid2
+{
+    width: 100%;
+}
+
+
+
+</style>
+
+

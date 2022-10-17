@@ -1,0 +1,28 @@
+
+body{
+    color: #000000;
+    font-weight: 900;
+    background-color: #ffee00;
+}
+.label-bottom{
+    margin-top: 40%;
+}
+
+ion-label{
+    font-size: 20px;
+}
+
+// @keyframes slide-in-left{0%{transform:translateX(-1000px);opacity:0}100%{transform:translateX(0);opacity:1}}
+
+.container{
+    // animation:slide-in-left 1s cubic-bezier(.25,.46,.45,.94) both;
+    
+    img{
+        margin-top: 50%;
+        width:  60%;
+    }
+}
+
+.container-label{
+    margin-bottom: 10px;
+}
