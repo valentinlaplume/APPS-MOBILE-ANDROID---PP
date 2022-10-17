@@ -28,15 +28,16 @@ export class HomePage implements OnInit {
 
   async signOff():Promise<void>{
     try {
-      this.onSonidoIngresoVolver();
-      console.log(this.authSvc.logout());
-      this.router.navigate(['../login']);
+      this.onSonidoVolver();
+      this.authSvc.logout().then(x => {
+        this.router.navigate(['../login']);
+      })
     } catch (error) {
       console.log('Error->', error);
     }
   }
 
-  onSonidoIngresoVolver(){
+  onSonidoVolver(){
     let audio = new Audio();
     audio.src = '../../assets/sonidos/volver.mp3';
     audio.load();
