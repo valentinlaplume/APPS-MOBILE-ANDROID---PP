@@ -1,7 +1,26 @@
+<ion-header>
+  <ion-title> {{this.authSvc.emailUser}}</ion-title>
+</ion-header>
+
+<ion-content scrolly="false">
+  <ion-row>
+    <ion-col (click)="onChatAulaA()" sizeLg="6" sizeXs="12" class="aula-amarillo">
+        <!-- <ion-card-content >
+        </ion-card-content> -->
+        <ion-card-title>PPS-4A</ion-card-title>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col (click)="onChatAulaB()" sizeLg="6" sizeXs="12" class="aula-azul">
+        <!-- <ion-card-content (click)="onChatAulaB()">
+        </ion-card-content> -->
+          <ion-card-title>PPS-4B</ion-card-title>
+          <!-- <ion-img src="../../assets/chat-aulas.png"></ion-img> -->
+    </ion-col>
+  </ion-row>
 
 
-<ion-content scroll-y="false">
-  <ion-card class="aula-rojo">
+  <!-- <ion-card class="aula-amarillo">
     <ion-card-content (click)="onChatAulaA()">
       <ion-card-title>PPS-4A</ion-card-title>
     </ion-card-content>
@@ -10,9 +29,8 @@
   <ion-card class="aula-azul">
     <ion-card-content (click)="onChatAulaB()">
       <ion-card-title>PPS-4B</ion-card-title>
-      <!-- <ion-img src="../../assets/chat-aulas.png"></ion-img> -->
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
 </ion-content>
 
@@ -21,6 +39,5 @@
     Cerrar Sesión
   </ion-button>
 </ion-footer>
-<!-- <ion-title> {{this.authSvc.emailUser}}</ion-title> -->
 
 

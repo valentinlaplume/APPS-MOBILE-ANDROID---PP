@@ -11,22 +11,22 @@
     padding-left: 5px!important;
 }
 .btn-enviar{
-    color:#fb8c8c;
+    color:#ffdf40;
     font-weight: 900;
     float:right;
 }
 .btn-volver{
-    color:#fb8c8c;
+    color:#ffdf40;
     font-weight: 900;
     float:left;
 }
 ion-header{
+    text-align: center;
     color: white !important;
     background-color: #3d3d3d ;
     font-weight:900;
     display: flex;
-    border-bottom: 3px solid #fb8c8c;
-
+    border-bottom: 3px solid #ffdf40;
 }
 ion-title{
     float:right;
@@ -83,7 +83,7 @@ ion-footer{
 }
 
 .emisor {
-    color: #fb8c8c;
+    color: #ffdf40;
     float: left;
     font-size: small;
     font-weight: 700;
@@ -120,7 +120,7 @@ ion-footer{
 }
 
 .span {
-    background:#d06060 !important;
+    background:#8c7b27 !important;
     display: inline-block !important;
     color: white !important;
     padding: 10px !important;

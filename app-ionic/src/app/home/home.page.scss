@@ -1,13 +1,29 @@
-ion-card{
-    height: 45%;
+ion-header{
+    text-align: center;
+    font-size: 15px;
+    padding: 20px;
+    background-color: #3d3d3d ;
+}
+ion-content{
+    position:relative;
+    text-align: center;
+}
+ion-row{
+    padding: 10px;
+    height: 50%;
+    border-radius: 10px;
 }
 
 ion-button{
     margin-left: 3%;
     margin-right: 3%;
-    background-color: #3d3d3d;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
+}
+
+ion-col{
+    border-radius: 50px;
+
 }
 
 ion-card-title{
@@ -17,22 +33,24 @@ ion-card-title{
     color: #ffffff!important ;
 }
 
+
 ion-card-content{
     align-items: center;
     text-align: center;
+    height: 100%!important;
 }
-ion-img{
-    width: 50%;
-    align-items: center;
+.card-content{
+    background-color: red;
 }
+
 
 ion-footer{
     padding: 5px;
     background-color: #3d3d3d ;
 }
 
-.aula-rojo{
-    background-color: #fb8c8c;
+.aula-amarillo{
+    background-color: #ffdf40;
 }
 
 .aula-azul{

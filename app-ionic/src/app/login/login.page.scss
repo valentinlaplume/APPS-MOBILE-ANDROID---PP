@@ -13,17 +13,19 @@
     display: block;
 }
 
-
-ion-content{
-    background-color: red!important;
-}
-
 img{
     border-radius: 50%;
 }
 
 ion-col{
     align-items: center;
+    text-align: center;
+}
+
+ion-button{
+    margin-left: 3%;
+    margin-right: 3%;
+    border-radius: 20px;
     text-align: center;
 }
 

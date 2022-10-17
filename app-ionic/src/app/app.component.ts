@@ -17,7 +17,8 @@ export class AppComponent {
   }
 
   initializeApp(){
-    this.router.navigateByUrl('splashInicial');
+     //this.router.navigateByUrl('splashInicial');
+    this.router.navigateByUrl('login');
   }
 
   changeDarkMode()
