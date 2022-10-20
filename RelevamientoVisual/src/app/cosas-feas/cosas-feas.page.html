@@ -1,0 +1,67 @@
+      
+<body id="body" >
+  <ion-header slot="fixed">
+    <ion-toolbar color="warning">
+      <ion-title >COSAS FEAS</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+  
+<ion-spinner style="left: 0px; margin:auto;background-color: 
+#260d0d; padding:10%" color="warning" *ngIf="muestroSpinner" name="crescent"></ion-spinner>
+
+
+<ion-content  color="secondary" >
+  <ion-grid >
+    <ion-row size="12" *ngFor="let photo of this.listaCosasFeas; ">
+      <ion-col>
+        <label class="label-foto">{{photo.emailUsuario}}</label>
+        <ion-img [src]="photo.img_src"></ion-img>
+        <label class="label-voto">Votos: {{photo.likes.length}}</label>
+        <label class="label-fecha">{{photo.fecha}} - {{photo.hora}}</label>
+        <ion-button *ngIf="photo.likes.indexOf(this.authService.emailUser) == -1"
+        color="warning" expand="block" (click)="votar(photo, true)"
+        >VOTAR</ion-button>
+        <ion-button *ngIf="photo.likes.indexOf(this.authService.emailUser) != -1"
+        color="medium" expand="block" (click)="votar(photo, false)"
+        >QUITAR VOTO</ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col size="12" >
+        <label class="label-foto">laplu.me.valen@gmail.com</label>
+        <ion-img src="../../assets/cosasFeas.jpg"></ion-img>
+        <label class="label-fecha">18/10/2022</label>
+        <ion-button color="warning" expand="block">VOTAR</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" >
+        <label class="label-foto">laplu.me.valen@gmail.com</label>
+        <ion-img src="../../assets/cosasFeas.jpeg"></ion-img>
+        <label class="label-fecha">18/10/2022</label>
+        <ion-button color="warning" expand="block">VOTAR</ion-button>
+      </ion-col>
+    </ion-row> -->
+    <div style="height:40px; background:#260d0d">
+    </div>
+  </ion-grid>
+  
+</ion-content>
+  
+    <!-- ion-fab markup  -->
+
+  <ion-fab class="redireccionador" vertical="top" horizontal="start" slot="fixed" (click)="onVolver()">
+    <ion-fab-button color="danger">
+      <ion-icon name="arrow-back-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab class="redireccionador" vertical="bottom" horizontal="end" slot="fixed" (click)="addPhotoToGallery()">
+    <ion-fab-button color="danger">
+      <ion-icon name="camera-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</body>

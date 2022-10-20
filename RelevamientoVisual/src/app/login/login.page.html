@@ -1,0 +1,61 @@
+<body id="body">
+
+  <ion-header >
+    <ion-toolbar color="secondary">
+      <ion-title align="center">RELEVAMIENTO VISUAL</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <br>
+
+  <form id="formulario">
+    <ion-item style="margin-top: 10px;border-radius: 10px;" color="medium" lines="full">
+      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-input type="email" 
+      [(ngModel)]="this.email" 
+      [ngModelOptions]="{standalone: true}" 
+      required placeholder="ejemplo@ejemplo.com"></ion-input>
+    </ion-item>
+    
+    <ion-item style="margin-top: 10px;border-radius: 10px;" color="medium" lines="full">
+      <ion-label position="floating" >Contraseña</ion-label>
+      <ion-input type="password" 
+      [(ngModel)]="this.password" 
+      [ngModelOptions]="{standalone: true}"
+      required placeholder=""></ion-input>
+    </ion-item>
+    
+    <ion-row *ngIf="validaLogin != ''" class="row-error">
+      <ion-col class="col-error">
+        <label class="lbl-error" color="danger" mode="md">{{validaLogin}}</label>
+      </ion-col>
+    </ion-row>
+    <br>
+    <br>
+    
+    <ion-row *ngIf="muestroSpinner" class="item-spinner">
+      <ion-col>
+        <ion-spinner color="warning" name="crescent"></ion-spinner>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-button style="margin-bottom: 10px;" [disabled]="!email || !password" color="danger" (click)="onSpinnerLogin()" expand="block">
+          Iniciar sesión
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align="center">
+        <ion-title style="margin: 15px 0px;">Accesos:</ion-title>
+        <ion-button color="medium" class="btn-acceso" (click)="onLoginUsuarioAdministrador()" >Administrador</ion-button>
+        <ion-button color="medium" class="btn-acceso" (click)="onLoginUsuarioModerador()" >Tester</ion-button>
+        <ion-button color="medium" class="btn-acceso" (click)="onLoginUsuarioComun()" >Invitado</ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </form>
+
+</body>
+
+

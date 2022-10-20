@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "practicasprofesionales20-8aa2f": {
+      "hosting": {
+        "app": [
+          "practicasprofesionales20-8aa2f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "practicasprofesionales20-8aa2f"
+  }
+}

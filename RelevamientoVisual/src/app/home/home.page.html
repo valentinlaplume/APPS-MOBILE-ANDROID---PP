@@ -1,0 +1,37 @@
+      
+<body id="body" scroll-y="false">
+  <ion-grid id="main-grid">
+    <ion-col>
+      <ion-row class="row-main-grid">
+        <img src="../../assets/cosasLindas.jpeg" id="btnCosasLindas" (click)="onCosasLindas()"> 
+      </ion-row>
+    </ion-col>
+    <ion-col>
+      <ion-row class="row-main-grid">
+        <img  src="../../assets/cosasFeas.jpg" id="btnCosasFeas" (click)="onCosasFeas()"> 
+      </ion-row>
+    </ion-col>
+
+  </ion-grid>
+
+  <!-- fab placed to the bottom start -->
+  <ion-fab class="redireccionador" vertical="top" horizontal="start" slot="fixed" (click)="signOff()">
+    <ion-fab-button color="danger">
+      <ion-icon name="arrow-back-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- fab placed to the bottom start -->
+  <ion-fab class="redireccionador" vertical="bottom" horizontal="end" slot="fixed" (click)="onGraficos()">
+    <ion-fab-button color="danger">
+      <ion-icon name="cellular"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+   <!-- fab placed to the bottom start -->
+  <ion-fab class="redireccionador" vertical="bottom" horizontal="start" slot="fixed" (click)="onCosasPropias()">
+    <ion-fab-button color="danger">
+      <ion-icon name="book"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</body>

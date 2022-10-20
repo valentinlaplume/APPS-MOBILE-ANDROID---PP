@@ -1,0 +1,39 @@
+      
+<body id="body" >
+  <ion-header slot="fixed">
+    <ion-toolbar color="warning">
+      <ion-title >MIS COSAS</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-spinner style="left: 0px; margin:auto;background-color: 
+#260d0d; padding:10%" color="warning" *ngIf="muestroSpinner" name="crescent"></ion-spinner>
+
+<ion-content  color="secondary" >
+  <ion-grid >
+    <ion-row size="12" *ngFor="let photo of this.listaCosasPropias; ">
+      <ion-col>
+        <label class="label-foto">
+            {{photo.emailUsuario}}</label>
+        <ion-img [src]="photo.img_src"></ion-img>
+        <label class="label-voto">Votos: {{photo.likes.length}}</label>
+        <label class="label-fecha">{{photo.fecha}} - {{photo.hora}}</label>
+      </ion-col>
+    </ion-row>
+    <div style="height:40px; background:#260d0d">
+    </div>
+  </ion-grid>
+  
+</ion-content>
+  
+    <!-- ion-fab markup  -->
+
+  <ion-fab class="redireccionador" vertical="top" horizontal="start" slot="fixed" (click)="onVolver()">
+    <ion-fab-button color="danger">
+      <ion-icon name="arrow-back-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</body>
+
