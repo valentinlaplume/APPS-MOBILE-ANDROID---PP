@@ -51,10 +51,10 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col align="center">
-        <ion-title style="margin: 15px 0px;">Accesos:</ion-title>
-        <ion-list>
-          <ion-radio-group >
+      <ion-col align="center" color="danger">
+        <ion-title style="margin: 15px 0px; color:black">Accesos:</ion-title>
+        <ion-list color="danger">
+          <ion-radio-group>
             <ion-item color="danger" >
               <ion-label>Administrador</ion-label>
               <ion-radio slot="end" value="strawberries" (click)="onLoginUsuarioAdministrador()"></ion-radio>
@@ -71,9 +71,6 @@
             </ion-item>
           </ion-radio-group>
         </ion-list>
-        <!-- <ion-button color="danger" class="btn-acceso" (click)="onLoginUsuarioAdministrador()" >Administrador</ion-button>
-        <ion-button color="danger" class="btn-acceso" (click)="onLoginUsuarioModerador()" >Tester</ion-button>
-        <ion-button color="danger" class="btn-acceso" (click)="onLoginUsuarioComun()" >Invitado</ion-button> -->
       </ion-col>
     </ion-row>
     

@@ -83,6 +83,7 @@ export class HomePage implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     this.setearCreditoUserLog();
+    this.authService.emailUser = '';
     console.log('ngOnDestroy')
     this.setearErrorMsj('');
     this.suscripciones.forEach(observable =>{
