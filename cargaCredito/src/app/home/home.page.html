@@ -1,0 +1,78 @@
+<body id="body">
+
+  <ion-header >
+    <ion-toolbar color="danger">
+      <ion-title align="center">ESCANEA TU CÓDIGO</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-title align="center"></ion-title>
+  <ion-row class="row-botones">
+    <ion-col class="col-botones" >
+      <button class="btn-limpiar" (click)="limpiarCreditosDB()" expand="block">
+        SETEAR MIS CRÉDITOS
+      </button>
+      <!-- <ion-label style="color: black;">
+        qr:{{qrLeido}} 
+      </ion-label> -->
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-saldo">
+    <ion-col class="col-saldo">
+      <ion-label class="label-email">
+        {{this.authService.emailUser}}
+      </ion-label>
+      <ion-label class="label-saldo">
+        CRÉDITOS: 
+      </ion-label>
+        <ion-label class="label-saldo-monto">
+          {{this.creditoUserLog.creditos}} 
+        </ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-error" *ngIf="errorMsj">
+    <ion-col class="col-error">
+      <ion-label class="label-error">
+        {{errorMsj}}
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+  <!-- <ion-row *ngIf="muestroSpinner" class="item-spinner">
+    <ion-col>
+      <ion-spinner color="secondary" name="crescent"></ion-spinner>
+    </ion-col>
+  </ion-row> -->
+  
+  <ion-row>
+    <ion-col>
+      <!-- <ion-button style="margin-bottom: 10px;" [disabled]="!email || !password" color="danger" (click)="onSpinnerLogin()" expand="block">
+        Iniciar sesión
+      </ion-button> -->
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col align="center">
+
+    </ion-col>
+  </ion-row>
+    
+
+</body>
+
+<ion-fab class="redireccionador" vertical="top" horizontal="start" slot="fixed" (click)="signOff()">
+  <ion-fab-button color="ligth">
+    <ion-icon name="arrow-back-sharp"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
+<ion-fab class="redireccionador" vertical="bottom" horizontal="center" slot="fixed" (click)="scan()" style="margin-bottom:10px">
+  <ion-fab-button color="danger">
+    <ion-icon style=" height:40px; width:40px" name="qr-code-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+

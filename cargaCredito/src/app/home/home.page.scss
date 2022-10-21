@@ -1,0 +1,82 @@
+#body
+{
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 11%, rgba(231,231,231,1) 28%, rgba(0,142,255,1) 100%);
+    text-align: center;
+}
+
+ion-toolbar{
+    text-align: center;
+}
+.label-email{
+    padding: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    display: block;
+    color: #141b4b;
+    background: rgb(255,255,255);
+    border-radius: 20px;
+}
+
+.row-saldo{
+    width: 85%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 20px;
+    height: 55%;
+}
+.col-saldo{
+    padding: 30px;
+    border-radius: 20px;
+    background: #232f8b;
+}
+.label-saldo{
+    padding-top: 20px;
+    display: block;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 30px;
+}
+.label-saldo-monto{
+    display: block;
+    margin-top: 50px;
+    color: white;
+    font-weight: 700;
+    font-size: 60px;
+}
+.center-span{
+    display: block;
+    text-align:center
+}
+
+.btn-limpiar{
+    display: block;
+    background: red;
+    width: 85%;
+    height: 50px;
+    font-size: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.col-error{
+    margin-top: 20px;
+}
+.label-error{
+    font-weight: 700;
+    color:red;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.item-spinner{
+    width: 100%; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

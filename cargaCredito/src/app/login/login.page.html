@@ -1,0 +1,84 @@
+<body id="body">
+
+  <ion-header >
+    <ion-toolbar color="danger">
+      <ion-title align="center">CARGA DE CRÉDITO</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <br>
+
+  <form id="formulario">
+    <ion-row>
+      <ion-col>
+          <ion-img src="../../assets/logo.png" style="left:0px; right:0px;margin:auto;width: 30%"></ion-img>
+        </ion-col>
+    </ion-row>
+    <ion-item style="margin-top: 10px;border-radius: 10px;" color="danger" lines="full">
+      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-input type="email" 
+      [(ngModel)]="this.email" 
+      [ngModelOptions]="{standalone: true}" 
+      required placeholder="ejemplo@ejemplo.com"></ion-input>
+    </ion-item>
+    
+    <ion-item style="margin-top: 10px;border-radius: 10px;" color="danger" lines="full">
+      <ion-label position="floating" >Contraseña</ion-label>
+      <ion-input type="password" 
+      [(ngModel)]="this.password" 
+      [ngModelOptions]="{standalone: true}"
+      required placeholder=""></ion-input>
+    </ion-item>
+    
+    <ion-row *ngIf="validaLogin != ''" class="row-error">
+      <ion-col class="col-error">
+        <label class="lbl-error" mode="md">{{validaLogin}}</label>
+      </ion-col>
+    </ion-row>
+    <br>
+    <br>
+    
+    <ion-row *ngIf="muestroSpinner" class="item-spinner">
+      <ion-col>
+        <ion-spinner color="danger" name="crescent"></ion-spinner>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-button style="margin-bottom: 10px;" [disabled]="!email || !password" color="medium" (click)="onSpinnerLogin()" expand="block">
+          Iniciar sesión
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align="center">
+        <ion-title style="margin: 15px 0px;">Accesos:</ion-title>
+        <ion-list>
+          <ion-radio-group >
+            <ion-item color="danger" >
+              <ion-label>Administrador</ion-label>
+              <ion-radio slot="end" value="strawberries" (click)="onLoginUsuarioAdministrador()"></ion-radio>
+            </ion-item>
+        
+            <ion-item color="danger">
+              <ion-label>Tester</ion-label>
+              <ion-radio slot="end" value="grapes" (click)="onLoginUsuarioModerador()"></ion-radio>
+            </ion-item>
+        
+            <ion-item color="danger">
+              <ion-label>Invitado</ion-label>
+              <ion-radio slot="end" value="pineapple" (click)="onLoginUsuarioComun()"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+        <!-- <ion-button color="danger" class="btn-acceso" (click)="onLoginUsuarioAdministrador()" >Administrador</ion-button>
+        <ion-button color="danger" class="btn-acceso" (click)="onLoginUsuarioModerador()" >Tester</ion-button>
+        <ion-button color="danger" class="btn-acceso" (click)="onLoginUsuarioComun()" >Invitado</ion-button> -->
+      </ion-col>
+    </ion-row>
+    
+  </form>
+
+</body>
+
+
