@@ -1,0 +1,53 @@
+#body
+{
+  background: linear-gradient(332deg, rgba(0,0,0,1) 0%, rgba(114,0,0,1) 50%, rgba(252,176,69,1) 100%);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+@keyframes myAnim {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+#main-container
+{
+  margin-top: 50%;
+  animation: myAnim 2s ease 0s 1 normal forwards;
+  color: white;
+}
+
+img
+{
+  width: 50%;
+}
+
+
+
+

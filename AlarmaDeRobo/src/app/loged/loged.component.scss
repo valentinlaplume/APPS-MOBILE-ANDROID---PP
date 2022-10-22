@@ -1,0 +1,77 @@
+#body
+{
+    background:  linear-gradient(332deg, rgba(0,0,0,1) 0%, rgba(114,0,0,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+#card-main
+{
+    margin-top: 1rem;
+    align-items: center;
+    text-align: center;
+    justify-content:center;
+    display: flex;
+    background-color: whitesmoke;
+    height: 70%;
+}
+
+#btn-security
+{
+    height: 95%;
+    width: 95%;
+    padding: 1rem;
+    font-size: 37px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+}
+
+.candado
+{
+    height: 300px;
+    width: 300px;
+    margin-left: 4%;
+}
+
+#card-desactivar
+{
+    background: rgb(255,0,0);
+    background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(255,226,0,1) 100%);
+    height: 20%;
+}
+
+#input-contraseña
+{
+    background:black;
+    color:white;
+    font-weight:700;
+    align-self: center;
+    text-align: center;
+    width: 85%;
+    height: 3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 8%;
+    margin-top: 0.8rem;
+}
+
+#btnDesactivar
+{
+    width: 85%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 8%;
+}
+
+//------ SPINNER ---------
+.item-spinner
+{
+    left:0px;
+    right:0px;
+    margin:auto;
+    width: 80%;
+    height: 80%;
+}
+
+#loader-spinner
+{
+    width: 100%;
+    height: 100%;
+}
+//
