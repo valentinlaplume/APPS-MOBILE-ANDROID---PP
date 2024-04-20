@@ -7,7 +7,10 @@
     display: block;
     text-align:center
 }
-
+ion-header  {
+    background: #260d0d;
+    color: white;
+}
 #formulario{
     background: #260d0d;
     border-radius: 20px;
@@ -17,7 +20,10 @@
     height: 100%;
     color: white;
 }
-
+#col-accesos{
+    margin-top: 50px;
+    height: 50px
+}
 .lbl-error{
     margin: 10px 0px;
     color:red;

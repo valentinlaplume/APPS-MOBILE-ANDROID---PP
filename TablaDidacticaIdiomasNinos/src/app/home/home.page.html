@@ -60,15 +60,23 @@
     </div>
 
     <div *ngIf="tema == 'ani'" class="container-animal" id="container-animal">
-        <div class="container-animal-hijo">
-            <ion-img class="al-lado-vertical img-animal" src="../assets/images/mono.png" (click)="playAnimal('mono')"></ion-img>
-            <ion-img class="al-lado-vertical img-animal" src="../assets/images/elefante.png" (click)="playAnimal('elefante')"></ion-img>
-            <div>
-                <ion-img class="al-lado-vertical img-animal" src="../assets/images/leon.png" (click)="playAnimal('leon')"></ion-img>
-            </div>
-            <ion-img class="al-lado-vertical img-animal" src="../assets/images/tigre.png" (click)="playAnimal('tigre')"></ion-img>
-            <ion-img class="al-lado-vertical img-animal" src="../assets/images/serpiente.png" (click)="playAnimal('serpiente')"></ion-img>
+        <!-- <div class="container-animal-hijo">
+        </div> -->
+        <div class="div-animal">
+            <ion-img class=" img-animal" src="../assets/images/mono.png" (click)="playAnimal('mono')"></ion-img>
         </div>
+        <div class="div-animal">
+            <ion-img class=" img-animal" src="../assets/images/elefante.png" (click)="playAnimal('elefante')"></ion-img>
+        </div>
+        <div class="div-animal">
+                <ion-img class=" img-animal" src="../assets/images/leon.png" (click)="playAnimal('leon')"></ion-img>
+            </div>
+        <div class="div-animal">
+            <ion-img class=" img-animal" src="../assets/images/tigre.png" (click)="playAnimal('tigre')"></ion-img>
+        </div>
+        <div class="div-animal">
+            <ion-img class=" img-animal" src="../assets/images/serpiente.png" (click)="playAnimal('serpiente')"></ion-img>
+</div>
     </div>
 
     <ion-card id="content-main-card2" *ngIf="tema == 'ani'" id="container-animal-responsive">

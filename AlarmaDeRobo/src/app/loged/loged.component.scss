@@ -42,7 +42,6 @@
 {
     background:black;
     color:white;
-    font-weight:700;
     align-self: center;
     text-align: center;
     width: 85%;
@@ -50,10 +49,17 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 8%;
     margin-top: 0.8rem;
+    height: 40px;
+
+    font-size: 20px;
 }
 
 #btnDesactivar
 {
+    background:black;
+    color: white;
+    height: 40px;
+    font-size: 20px;
     width: 85%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 8%;

@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'splash-animado',
     pathMatch: 'full'
   },
   {
@@ -15,6 +15,15 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'splash-estatico',
+    loadChildren: () => import('./splash-estatico/splash-estatico.module').then( m => m.SplashEstaticoPageModule)
+  },
+  {
+    path: 'splash-animado',
+    loadChildren: () => import('./splash-animado/splash-animado.module').then( m => m.SplashAnimadoPageModule)
+  },
+
 ];
 
 @NgModule({

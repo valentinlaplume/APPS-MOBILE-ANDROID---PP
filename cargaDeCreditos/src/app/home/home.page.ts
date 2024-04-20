@@ -26,7 +26,7 @@ export class HomePage implements OnInit, OnDestroy {
   
   listaCreditos: Array<any> = new Array<any>();
   suscripciones:Subscription[] = [];
-
+  muestroSpinner:boolean = false;
   creditoUserLog:Credito= new Credito();
 
   constructor(
@@ -36,7 +36,15 @@ export class HomePage implements OnInit, OnDestroy {
     private creditosService:CreditosService,
     ) {
 
+      this.spinnerShow();
+  }
 
+  spinnerShow(){
+    this.muestroSpinner = true;
+  }
+
+  spinnerHide(){
+    this.muestroSpinner = false;
   }
 
   setearCreditoUserLog(){
@@ -64,8 +72,10 @@ export class HomePage implements OnInit, OnDestroy {
       console.log('filtrada: ', this.listaCreditos)
       this.creditoUserLog = this.listaCreditos[0];//.length == 0 ? new Credito() : this.listaCreditos[0] ;
       console.log('creditoUserLog: ', this.creditoUserLog)
+      this.spinnerHide();
      }));
     }catch(err){
+      this.spinnerHide();
       alert(err)
     }
   }
@@ -78,6 +88,7 @@ export class HomePage implements OnInit, OnDestroy {
       this.idUserLog = e.uid;
       console.log('id User Log : ', this.idUserLog )
       this.cargarLista();
+      
     })
 
   }
@@ -105,6 +116,8 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   scan(){
+    this.setearErrorMsj('');
+    this.spinnerShow();
     console.log('scan on', );
     this.scannerService.test()
     .then(e => {
@@ -123,8 +136,10 @@ export class HomePage implements OnInit, OnDestroy {
           });
         }
       }
+      this.spinnerHide();
     })
-    .catch(err => console.error(err))
+    .catch(err => {console.error(err)
+      this.spinnerHide();})
     //this.simularScan();
   }
 

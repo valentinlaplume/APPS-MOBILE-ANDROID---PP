@@ -60,17 +60,19 @@ ion-img {
     border-radius: 15px;
 }
 img{
-    width: 70%;
+    width: 20px;
 }
 
 img, .img-animal{
     background-color: rgb(21, 21, 21);
+    width: 80%;
+
 }
 
 .al-lado-vertical{
     display: inline-block;
     padding: 2px;
-    margin: 10px 10px;
+    // margin: 10px 10px;
 }
 
 .container-idiomas{
@@ -82,20 +84,38 @@ img, .img-animal{
 }
 
 .container-animal{
-    position: relative;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
+    height: 100%;
+    // position: relative;
+    // text-align: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     background-image: url('../../assets/images/selva.jpg');
     border-radius: 15px;
+
     margin: 0px 15px;
-    margin-top: 30%;
+}
+
+.div-animal{
+    display: flex;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    margin-top: 5px;
+    overflow: hidden;
+    justify-content: center;
+    text-align:center;
+    height: 20%;
+    width: 100%;
 }
 .container-animal-hijo{
     height: 100%;
+    display: flex;
 }
+.img-animal {
+    width: 50%;
+    height: 80%;
+  }
 
 .container-color{
     text-align: center;
@@ -124,23 +144,26 @@ img, .img-animal{
     border-radius: 5px;
 }
 #container-animal-responsive{
-    display: none; 
+    img{
+        display: block; 
+    }
 }
 
 
 
 @media (max-width: 376px ) {
     .div-numero{
+        padding-top: 20px;
         font-size: 70px;
     }
-    .img-animal{
-        width: 40%;
-    }
+    // .img-animal{
+    //     width: 30%;
+    // }
 
-    .container-animal{
-        margin-top: 13%;
-        height: 75%;
-    }
+    // .container-animal{
+    //     margin-top: 10%;
+    //     height: 75%;
+    // }
 
 
 }
@@ -148,7 +171,7 @@ img, .img-animal{
 
 @media (max-height: 510px) or (max-width: 250px){
     .div-numero{
-        padding-top: 40px;
+        padding-top: 20px;
         font-weight: 700;
         font-size: 50px;
     }

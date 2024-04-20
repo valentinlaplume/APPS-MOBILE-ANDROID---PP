@@ -42,7 +42,8 @@
 
 #card-main-content
 {
-
+    margin-top: 60px;
+    font-size: 20px;
     width: 100%;
 }
 
@@ -57,30 +58,48 @@
 #mail,#password
 {
     margin-top: 1rem;
+    margin-right: 5px;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #selector-magico
 {
+    color: white;
+    margin-top: 20px;
+    height: 60px;
+    width: 80%;
+    margin-right: 5px;
+    font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #btnIngresar, #btnRegistrarse
 {
+    color: white;
     margin-top: 20px;
+    height: 50px;
+    width: 80%;
+    margin-right: 5px;
+    font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #txtError 
 {
   margin-top: 15px;
-  color: red;
+  color: rgb(0, 0, 0);
+  background: rgb(255, 0, 0);
+  padding: 15px;
+  border-radius: 20px;
   margin-bottom: 3.5px;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 #txtSatisfaccion
 {
+  font-size: 20px;
   margin-top: 15px;
   color: green;
   margin-bottom: 3.5px;

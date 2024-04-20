@@ -8,7 +8,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 // };
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'io.conversandoAula.starter',
   appName: /*'app-ionic'*/'conversandoAula',
   webDir: 'www',
   bundledWebRuntime: false,

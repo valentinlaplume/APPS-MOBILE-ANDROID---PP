@@ -61,11 +61,15 @@ export class CosasFeasPage implements OnInit {
   }
 
   addPhotoToGallery() {
+    this.spinnerShow();
     this.photoService.addNewToGallery(this.photoService.dbPathCosasFeas)
     .then(item => {
+      this.spinnerHide();
       console.log('addPhotoToGallery item -> ',item);
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      this.spinnerHide();
+      console.error(err)});
   }
 
   votar(foto : any, like : boolean)

@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
         audio.load();
         audio.play();
         this.validaLogin = '';
-        this.router.navigate(['../home2']);
+        this.router.navigate(['../home']);
         // const isVerified = this.authSvc.isEmailVerified(user);
         // console.log('isEmailVerified -> ', isVerified);
         // this.redirectUser(isVerified);

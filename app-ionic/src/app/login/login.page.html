@@ -55,12 +55,20 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col align="center">
+      <!-- <ion-col align="center">
         <ion-title>Accesos:</ion-title>
         <ion-button class="primary btn-acceso" (click)="onLoginUsuarioAdministrador()" >Administrador</ion-button>
         <ion-button class="primary btn-acceso" (click)="onLoginUsuarioModerador()" >Tester</ion-button>
         <ion-button class="primary btn-acceso" (click)="onLoginUsuarioComun()" >Invitado</ion-button>
-      </ion-col>
+      </ion-col> -->
+      <ion-row id="row-fast-access" style="left:0px;right:0px;margin:auto">
+        <ion-title>ACCESSOS:</ion-title>
+        <ion-col align="center" >
+          <ion-fab-button class="btnFastAccess" color="medium" (click)="onLoginUsuarioAdministrador()">A</ion-fab-button>
+          <ion-fab-button class="btnFastAccess" color="medium" (click)="onLoginUsuarioModerador()">T</ion-fab-button>
+          <ion-fab-button class="btnFastAccess" color="medium" (click)="onLoginUsuarioComun()">I</ion-fab-button>
+        </ion-col>
+      </ion-row>
     </ion-row>
 
     <ion-row >

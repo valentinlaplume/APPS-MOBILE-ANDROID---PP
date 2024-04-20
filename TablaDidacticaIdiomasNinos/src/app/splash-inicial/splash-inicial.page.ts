@@ -16,11 +16,6 @@ export class SplashInicialPage implements OnInit {
   }
 
   onSplashAnimado(){
-    let audio = new Audio();
-    audio.src = '../../assets/sonidos/volver.mp3';
-    audio.load();
-    audio.play();
-    console.log('onSplashAnimado')
     this.router.navigateByUrl('splashAnimado');
   }
 

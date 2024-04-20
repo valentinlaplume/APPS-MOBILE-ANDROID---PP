@@ -60,11 +60,14 @@ export class CosasLindasPage implements OnInit, OnDestroy {
   }
 
   addPhotoToGallery() {
+    this.spinnerShow();
     this.photoService.addNewToGallery(this.photoService.dbPathCosasLindas)
     .then(item => {
+      this.spinnerHide();
       console.log('addPhotoToGallery item -> ',item);
     })
     .catch(err => {
+      this.spinnerHide();
       console.error(err)});
   }
 

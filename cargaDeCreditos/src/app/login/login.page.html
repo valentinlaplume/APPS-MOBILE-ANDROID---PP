@@ -13,7 +13,7 @@
           <ion-img src="../../assets/logo.png" style="left:0px; right:0px;margin:auto;width: 30%"></ion-img>
         </ion-col>
     </ion-row>
-    <ion-item style="margin-top: 10px;border-radius: 10px;" color="danger" lines="full">
+    <ion-item style="margin-top: 20px;border-radius: 10px;" color="danger" lines="full">
       <ion-label position="floating">Correo electrónico</ion-label>
       <ion-input type="email" 
       [(ngModel)]="this.email" 
@@ -45,17 +45,18 @@
     
     <ion-row>
       <ion-col>
-        <ion-button style="margin-bottom: 10px;" [disabled]="!email || !password" color="medium" (click)="onSpinnerLogin()" expand="block">
+        <ion-button style="margin-bottom: 20px;" [disabled]="!email || !password" color="medium" (click)="onSpinnerLogin()" expand="block">
           Iniciar sesión
         </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col align="center" color="danger">
-        <ion-title style="margin: 15px 0px; color:black">Accesos:</ion-title>
+        <!-- <ion-title style="margin: 15px 0px; color:black">Accesos:</ion-title> -->
         <ion-list color="danger">
+          
           <ion-radio-group>
-            <ion-item color="danger" >
+            <!-- <ion-item color="danger" >
               <ion-label>Administrador</ion-label>
               <ion-radio slot="end" value="strawberries" (click)="onLoginUsuarioAdministrador()"></ion-radio>
             </ion-item>
@@ -68,11 +69,21 @@
             <ion-item color="danger">
               <ion-label>Invitado</ion-label>
               <ion-radio slot="end" value="pineapple" (click)="onLoginUsuarioComun()"></ion-radio>
-            </ion-item>
+            </ion-item> -->
           </ion-radio-group>
         </ion-list>
+
       </ion-col>
     </ion-row>
+    <ion-fab vertical="left"   horizontal="start" edge slot="fixed" id="theme-selected">
+      <ion-fab-button style="margin-top:20px;margin-left:15px;width:100px; height: 60px;" color="dark"   id="theme-showed">ACCESSOS</ion-fab-button>
+      <ion-fab-list side="end">
+          <ion-fab-button color="light" (click)="onLoginUsuarioAdministrador()">👨‍✈️</ion-fab-button>
+          <ion-fab-button color="light" (click)="onLoginUsuarioModerador()">👨‍💻​</ion-fab-button>
+          <ion-fab-button color="light" (click)="onLoginUsuarioComun()">👨‍💼​</ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
     
   </form>
 
