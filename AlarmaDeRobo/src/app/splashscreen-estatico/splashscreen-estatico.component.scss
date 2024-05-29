@@ -1,0 +1,28 @@
+#body
+{
+  background: linear-gradient(332deg, rgba(0,0,0,1) 0%, rgba(114,0,0,1) 50%, rgba(252,176,69,1) 100%);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#main-container
+{
+  margin-top: 50%;
+  animation: myAnim 2s ease 0s 1 normal forwards;
+  color: white;
+}
+
+img
+{
+  width: 50%;
+}
+
+h1{
+	font-size: 30px;
+}
+
+
+
+

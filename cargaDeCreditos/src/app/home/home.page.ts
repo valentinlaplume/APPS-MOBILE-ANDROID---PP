@@ -115,24 +115,49 @@ export class HomePage implements OnInit, OnDestroy {
     }
   }
 
-  scan(){
+  onSonidoCobrado()
+  {
+    let audio = new Audio();
+    audio.src = '../../assets/sonidos/cobrado.ogg';
+    audio.load();
+    audio.play();
+  }
+
+
+
+  onSonidoError()
+  {
+    let audio = new Audio();
+    audio.src = '../../assets/sonidos/error.ogg';
+    audio.load();
+    audio.play();
+  }
+
+  scan()
+  {
     this.setearErrorMsj('');
     this.spinnerShow();
     console.log('scan on', );
     this.scannerService.test()
-    .then(e => {
+    .then(e => 
+      {
       this.qrLeido = e;
       console.log('scan then', );
       console.log('tendria que ser qr leido: ', e);
       let creditoLeido = this.getCreditoQrLeido();
-      if(creditoLeido > 0){
+      if(creditoLeido > 0)
+      {
         if(this.creditoUserLog == undefined)
         {
+          this.onSonidoError();
           this.createCredito(creditoLeido);
-        }else
+        }
+        else
         {
           this.saveCreditoValidado(creditoLeido).then(e => {
             console.log(e)
+            this.setearErrorMsj('');
+            this.onSonidoCobrado();
           });
         }
       }
@@ -143,19 +168,27 @@ export class HomePage implements OnInit, OnDestroy {
     //this.simularScan();
   }
 
-  simularScan(){
+  simularScan()
+  {
     console.log('simularScan');
     this.qrLeido = this.qr50;
-    setTimeout(() => {
+    setTimeout(() => 
+    {
       let creditoLeido = this.getCreditoQrLeido();
-      if(creditoLeido > 0){
-        if(this.creditoUserLog == undefined){
+      if(creditoLeido > 0)
+      {
+        if(this.creditoUserLog == undefined)
+        {
+          this.onSonidoError();
           console.log('createCredito')
           this.createCredito(creditoLeido);
-        }else{
+        }
+        else{
           console.log('saveCreditoValidado')
           this.saveCreditoValidado(creditoLeido).then(e => {
             console.log(e)
+            this.setearErrorMsj('');
+            this.onSonidoCobrado();
           });
         }
 
@@ -188,7 +221,8 @@ export class HomePage implements OnInit, OnDestroy {
           update = true;
         }
         else{
-          this.setearErrorMsj('CRÉDITO UTILIZADO (MAX 2))')
+          this.onSonidoError();
+          this.setearErrorMsj('CRÉDITO UTILIZADO (MÁX 2)')
         }
       break;
       default:
@@ -211,6 +245,7 @@ export class HomePage implements OnInit, OnDestroy {
           update = true;
         }
         else{
+          this.onSonidoError();
           this.setearErrorMsj('CRÉDITO YA UTILIZADO')
         }
       break;
@@ -251,6 +286,7 @@ export class HomePage implements OnInit, OnDestroy {
           save = true;
         }
         else{
+          this.onSonidoError();
           this.setearErrorMsj('CRÉDITO YA UTILIZADO (MAX 2)')
         }
       break;
@@ -277,6 +313,7 @@ export class HomePage implements OnInit, OnDestroy {
           save = true;
         }
         else{
+          this.onSonidoError();
           this.setearErrorMsj('CRÉDITO YA UTILIZADO')
         }
       break;
@@ -304,11 +341,17 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   setearErrorMsj(msj)
-  { 
+  {            
+    
     this.errorMsj = msj;
   }
 
-  limpiarCreditosDB(){
+  limpiarCreditosDB()
+  {
+    let audio = new Audio();
+    audio.src = '../../assets/sonidos/volver.mp3';
+    audio.load();
+    audio.play();
     this.creditoLeido = 0;
     this.creditoUserLog.idUser = this.idUserLog;
     this.creditoUserLog.qr10= 0;
@@ -316,6 +359,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.creditoUserLog.qr100= 0;
     this.creditoUserLog.creditos= 0;
     this.creditosService.updateInfoCreditos(this.creditoUserLog);
+    this.setearErrorMsj('');
   }
 
 }

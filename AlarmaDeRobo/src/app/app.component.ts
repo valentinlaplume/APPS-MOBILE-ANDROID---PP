@@ -7,31 +7,26 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  public timeLeft: number = 3;
+  public interval: any;
+  public cargarTerminada: number = 0;
 
-  timeLeft: number = 3;
-  interval:any;
-  cargarTerminada:boolean = false;
+  constructor() {}
 
-  constructor() 
-  {}
-
-  ngOnInit():void
-  {
-    this.startTimer();
+  ngOnInit(): void {
+    //this.startTimer();
   }
-  
-  startTimer() 
+
+  public startTimer() 
   {
-    this.interval = setInterval(() => 
-    {
-      if(this.timeLeft > 0) 
-      {
-        this.timeLeft--;
-      } 
-      else if(this.timeLeft == 0) 
-      {
-        this.cargarTerminada = true;
-      }
-    },1000)
+    setTimeout(() => {
+      let audio = new Audio();
+      audio.src = '../../assets/sonidos/volver.mp3';
+      audio.load();
+      audio.play();
+      this.cargarTerminada = 2;
+    }, 2000);
+
+
   }
 }

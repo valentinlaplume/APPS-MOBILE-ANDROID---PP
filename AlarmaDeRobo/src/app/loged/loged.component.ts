@@ -55,6 +55,11 @@ export class LogedComponent implements OnInit {
     {
       // Sign-out successful.
       console.log("Cierre de sesión satisfactorio. Vuelva prontosss!");
+
+       let audio = new Audio();
+       audio.src = '../../assets/sonidos/volver.ogg';
+       audio.load();
+       audio.play();
       this.routerRecieved.navigate(['/home']);
 
     }).catch((error) => 
@@ -90,53 +95,65 @@ export class LogedComponent implements OnInit {
 
   comenzar()
   {
-      let imgLocked = document.getElementById("lock-closed");
-      let imgUnlocked = document.getElementById("lock-open");
-      let unlockSection = document.getElementById("card-desactivar");
+      let audio = new Audio();
+      audio.src = '../../assets/sonidos/cierre.ogg';
+      audio.load();
+      audio.play();
 
-      unlockSection.removeAttribute("hidden");
-      imgLocked.removeAttribute("hidden");
-
-      imgUnlocked.setAttribute("hidden","true");
-
-      this.subscription = this.deviceMotion.watchAcceleration({ frequency: 300 }).subscribe((acceleration: DeviceMotionAccelerationData) => {
-      this.accelerationX = Math.floor(acceleration.x);
-      this.accelerationY = Math.floor(acceleration.y);
-      this.accelerationZ = Math.floor(acceleration.z);
-
-      if(acceleration.x > 5)
-      {
-        //Inclinacion Izquierda
-        this.posicionActualCelular = 'izquierda';
-        this.movimientoIzquierda();
-      }
-      else if (acceleration.x < -5) 
-      {
-        //Inclinacion Derecha
-        this.posicionActualCelular = 'derecha';
-        this.movimientoDerecha();        
-      }
-      else if (acceleration.y >= 9) 
-      {
-        //encender flash por 5 segundos y sonido
-        this.posicionActualCelular='arriba';
+      setTimeout(() => {
         
-        if ((this.posicionActualCelular!=this.posicionAnteriorCelular)) {
-          this.audio.src = this.audioVertical;
-          this.posicionAnteriorCelular = 'arriba';
-        }
-
-        this.audio.play();
-        this.movimientoVertical();
-      }
-
-      else if (acceleration.z >= 9 && (acceleration.y >= -1 && acceleration.y <= 1) && (acceleration.x >= -1 && acceleration.x <= 1)) {
-        //acostado vibrar por 5 segundos y sonido
-        this.posicionActualCelular='plano';
-        this.movimientoHorizontal();
-      }
-
-    });
+        let imgLocked = document.getElementById("lock-closed");
+        let imgUnlocked = document.getElementById("lock-open");
+        let unlockSection = document.getElementById("card-desactivar");
+        
+        unlockSection.removeAttribute("hidden");
+        imgLocked.removeAttribute("hidden");
+        
+        imgUnlocked.setAttribute("hidden","true");
+        
+        
+        this.subscription = this.deviceMotion
+        .watchAcceleration({ frequency: 300 })
+        .subscribe((acceleration: DeviceMotionAccelerationData) => 
+        {
+          this.accelerationX = Math.floor(acceleration.x);
+          this.accelerationY = Math.floor(acceleration.y);
+          this.accelerationZ = Math.floor(acceleration.z);
+          
+          if(acceleration.x > 5)
+          {
+            //Inclinacion Izquierda
+            this.posicionActualCelular = 'izquierda';
+            this.movimientoIzquierda();
+          }
+          else if (acceleration.x < -5) 
+          {
+            //Inclinacion Derecha
+            this.posicionActualCelular = 'derecha';
+            this.movimientoDerecha();        
+          }
+          else if (acceleration.y >= 9) 
+          {
+            //encender flash por 5 segundos y sonido
+            this.posicionActualCelular='arriba';
+            
+            if ((this.posicionActualCelular!=this.posicionAnteriorCelular)) 
+            {
+              this.audio.src = this.audioVertical;
+              this.posicionAnteriorCelular = 'arriba';
+            }
+            
+            this.audio.play();
+            this.movimientoVertical();
+          }
+          else if (acceleration.z >= 9 && (acceleration.y >= -1 && acceleration.y <= 1) && (acceleration.x >= -1 && acceleration.x <= 1)) {
+            //acostado vibrar por 5 segundos y sonido
+            this.posicionActualCelular='plano';
+            this.movimientoHorizontal();
+          }
+          
+        });
+    }, 500);
   }
 
 
@@ -187,8 +204,13 @@ export class LogedComponent implements OnInit {
   {
     console.log(this.clave);
 
-    if (this.clave == "111111" || this.clave == "222222" || this.clave == "333333")
+    if (this.clave == "123" || this.clave == "abc" || this.clave == "utn")
     {
+      let audio = new Audio();
+      audio.src = '../../assets/sonidos/desbloqueo.ogg';
+      audio.load();
+      audio.play();
+
       let imgLocked = document.getElementById("lock-closed");
       let imgUnlocked = document.getElementById("lock-open");
       let unlockSection = document.getElementById("card-desactivar");

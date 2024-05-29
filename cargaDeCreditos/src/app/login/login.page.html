@@ -10,7 +10,7 @@
   <form id="formulario">
     <ion-row>
       <ion-col>
-          <ion-img src="../../assets/logo.png" style="left:0px; right:0px;margin:auto;width: 30%"></ion-img>
+          <ion-img src="../../assets/logo.png" style="left:0px; right:0px;margin:auto;width: 70%"></ion-img>
         </ion-col>
     </ion-row>
     <ion-item style="margin-top: 20px;border-radius: 10px;" color="danger" lines="full">
@@ -18,7 +18,8 @@
       <ion-input type="email" 
       [(ngModel)]="this.email" 
       [ngModelOptions]="{standalone: true}" 
-      required placeholder="ejemplo@ejemplo.com"></ion-input>
+      required placeholder="ejemplo@ejemplo.com"
+    ></ion-input>
     </ion-item>
     
     <ion-item style="margin-top: 10px;border-radius: 10px;" color="danger" lines="full">
@@ -26,7 +27,8 @@
       <ion-input type="password" 
       [(ngModel)]="this.password" 
       [ngModelOptions]="{standalone: true}"
-      required placeholder=""></ion-input>
+      required placeholder=""
+      ></ion-input>
     </ion-item>
     
     <ion-row *ngIf="validaLogin != ''" class="row-error">
@@ -43,9 +45,9 @@
       </ion-col>
     </ion-row>
     
-    <ion-row>
+    <ion-row *ngIf="!muestroSpinner">
       <ion-col>
-        <ion-button style="margin-bottom: 20px;" [disabled]="!email || !password" color="medium" (click)="onSpinnerLogin()" expand="block">
+        <ion-button style="margin-bottom: 10px;" [disabled]="!email || !password" color="medium" (click)="onSpinnerLogin()" expand="block">
           Iniciar sesión
         </ion-button>
       </ion-col>
@@ -75,14 +77,33 @@
 
       </ion-col>
     </ion-row>
-    <ion-fab vertical="left"   horizontal="start" edge slot="fixed" id="theme-selected">
-      <ion-fab-button style="margin-top:20px;margin-left:15px;width:100px; height: 60px;" color="dark"   id="theme-showed">ACCESSOS</ion-fab-button>
-      <ion-fab-list side="end">
-          <ion-fab-button color="light" (click)="onLoginUsuarioAdministrador()">👨‍✈️</ion-fab-button>
-          <ion-fab-button color="light" (click)="onLoginUsuarioModerador()">👨‍💻​</ion-fab-button>
-          <ion-fab-button color="light" (click)="onLoginUsuarioComun()">👨‍💼​</ion-fab-button>
-      </ion-fab-list>
-    </ion-fab>
+
+
+      <!-- <ion-item color="danger" style="text-align: center;">
+        <ion-label>ACCESOS</ion-label>
+      </ion-item> -->
+    
+  <ion-fab vertical="left" horizontal="start" slot="fixed" id="theme-selected-admin" *ngIf="!muestroSpinner  ">
+    <ion-fab-button color="dark" id="theme-showed">ADMIN</ion-fab-button>
+    <ion-fab-list >
+      <ion-fab-button class="larger-fab" color="light" (click)="onLoginUsuarioAdministrador()">👨‍✈️</ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab vertical="center" horizontal="start" slot="fixed" id="theme-selected-moder" *ngIf="!muestroSpinner ">
+    <ion-fab-button color="dark" id="theme-showed">MOD</ion-fab-button>
+    <ion-fab-list >
+      <ion-fab-button class="larger-fab" color="light" (click)="onLoginUsuarioModerador()">👨‍💻​</ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab vertical="right" horizontal="start" slot="fixed" id="theme-selected-invi" *ngIf="!muestroSpinner ">
+    <ion-fab-button color="dark" id="theme-showed">INVI</ion-fab-button>
+    <ion-fab-list >
+      <ion-fab-button class="larger-fab" color="light" (click)="onLoginUsuarioComun()">👨‍💼​</ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
 
     
   </form>

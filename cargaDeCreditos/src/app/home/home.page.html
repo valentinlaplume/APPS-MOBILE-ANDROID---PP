@@ -2,7 +2,7 @@
 
   <ion-header >
     <ion-toolbar color="danger">
-      <ion-title align="center">ESCANEA TU CÓDIGO</ion-title>
+      <ion-title align="center">--- ESCANEA TU CÓDIGO ---</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -12,17 +12,13 @@
       <button *ngIf="!muestroSpinner" class="btn-limpiar" (click)="limpiarCreditosDB()" expand="block">
         SETEAR MIS CRÉDITOS
       </button>
-      <!-- <ion-label style="color: black;">
-        qr:{{qrLeido}} 
-      </ion-label> -->
     </ion-col>
     
     
-    <ion-row class="row-saldo">
-
-      <ion-spinner style="left: 0px;right: 0px; margin:auto;background-color: 
-  transparent; padding:10%; " color="danger" *ngIf="muestroSpinner" name="crescent"></ion-spinner>
+    <ion-row class="row-saldo item-spinner">
+      <ion-spinner style="left: 0px;right: 0px; margin:auto;background-color: transparent; padding:10%; " color="danger" *ngIf="muestroSpinner" name="crescent"></ion-spinner>
     </ion-row>
+
     <ion-col class="col-saldo" *ngIf="!muestroSpinner">
       <ion-label class="label-email">
         {{this.authService.emailUser}}
@@ -66,10 +62,11 @@
 </ion-fab>
 
 
-<ion-fab *ngIf="!muestroSpinner" class="redireccionador" vertical="bottom" horizontal="center" slot="fixed" (click)="scan()" style="margin-bottom:10px">
-  <ion-fab-button color="danger">
-    <ion-icon style=" height:40px; width:40px" name="qr-code-outline"></ion-icon>
+<ion-fab *ngIf="!muestroSpinner" class="redireccionador" vertical="bottom" horizontal="center" slot="fixed" (click)="scan()" style="margin-bottom: 10px;">
+  <ion-fab-button color="danger" style="width: 80px; height: 80px;">
+    <ion-icon style="font-size: 40px;" name="qr-code-outline"></ion-icon>
   </ion-fab-button>
 </ion-fab>
+
 
 

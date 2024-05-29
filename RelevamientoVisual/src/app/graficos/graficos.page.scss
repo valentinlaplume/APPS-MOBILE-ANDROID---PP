@@ -6,11 +6,13 @@
 h4{
     background-color: #a05941;
     color: white;
+    font-size: 27px;
+    padding-bottom: 10px;
 }
 
 #graphs{
     background-color: #a05941;
-    margin-top: 30px!important;
+    margin-top: 34px!important;
 }
 
 ion-card{
@@ -36,6 +38,7 @@ ion-card{
 
 #main-container
 {
+    margin-top: 15%;
     border-radius: 20px;
 }
 
@@ -47,3 +50,16 @@ ion-card{
 ion-header{
     text-align: center;
 }
+
+
+
+.chart-container {
+  width: 100vw; /* Ancho total de la ventana del navegador */
+  height: 90vh; /* Altura total de la ventana del navegador */
+}
+
+canvas {
+  width: 50%;
+  height: 50%;
+}
+

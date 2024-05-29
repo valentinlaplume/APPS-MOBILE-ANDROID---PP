@@ -1,0 +1,26 @@
+
+/* APPP DIDACTICA */
+* {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+/* Relevamiento visual */
+// * {
+//   font-family: Verdana, sans-serif;
+// }
+
+/* Alarma de robo */
+// * {
+//   font-family: 'Segoe UI', sans-serif;
+// }
+
+
+// chat
+* {
+  font-family: 'Trebuchet MS', Helvetica, sans-serif;
+}
+
+// qr
+// * {
+//   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+// }

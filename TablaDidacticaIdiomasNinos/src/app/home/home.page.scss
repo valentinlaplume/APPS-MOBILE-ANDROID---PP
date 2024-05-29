@@ -9,16 +9,20 @@ ion-fab-button{
 
 #theme-selected
 {
-    margin-top: 15px;
-    margin-left: 10px;
+    margin-top: 12px;
+    margin-left: 5px;
 }
 
 #language-selected
 {
-    margin-top: 15px;
-    margin-right: 15px;
+    margin-top: 12px;
+    margin-right: 5px;
 }
 
+#redireccionador-selected{
+     margin-bottom: 2px;
+    margin-left: 5px;
+}
 .container-header{
     background-color: #95b8f6;
     border-bottom: 2px solid rgb(255, 255, 255);
@@ -41,12 +45,10 @@ ion-img {
 
 
 
-.img-idioma:hover {
-    box-shadow: 0 0 15px #fa5149;
-}
-.img-tema:hover {
-    box-shadow: 0 0 15px #fa5149;
-}
+
+// .img-tema:hover {
+//     box-shadow: 0 0 15px #fa5149;
+// }
 
 .content-color{
     background-color: rgb(178, 255, 178);
@@ -55,16 +57,17 @@ ion-img {
 
 .img-animal{
     width: 70%;
-    box-shadow: 0 0 15px rgb(255, 255, 255);
-    border: 2px solid white;
-    border-radius: 15px;
+    box-shadow: 0 0 15px #61c788;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px;
 }
 img{
     width: 20px;
 }
 
 img, .img-animal{
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(22, 22, 22);
     width: 80%;
 
 }
@@ -84,37 +87,39 @@ img, .img-animal{
 }
 
 .container-animal{
-    height: 100%;
-    // position: relative;
-    // text-align: center;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    background-image: url('../../assets/images/selva.jpg');
-    border-radius: 15px;
-
-    margin: 0px 15px;
+    background-image: url('../../assets/images/fondoSelva.jpg');
+    background-size: cover; /* Hace que la imagen de fondo cubra todo el div */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    width: 100%; /* Asegura que el div ocupe el 100% del ancho */
+    height: 100vh; /* Asegura que el div ocupe el 100% de la altura de la ventana */
+    text-align: center; /* Centra el texto horizontalmente */
+    padding: 5px;
 }
 
 .div-animal{
     display: flex;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    margin-top: 5px;
+    // width: 130px;
+    // height: 130px;
+    // margin: 0 auto;
+    // margin-top: 7px;
     overflow: hidden;
     justify-content: center;
     text-align:center;
     height: 20%;
-    width: 100%;
+    width: 105%;
+
+    align-content: center;
+    flex-wrap: wrap;
 }
 .container-animal-hijo{
     height: 100%;
     display: flex;
+    padding-top: 20px;
 }
 .img-animal {
-    width: 50%;
-    height: 80%;
+    width: 52%;
+    height: 90%;
   }
 
 .container-color{
@@ -125,7 +130,8 @@ img, .img-animal{
 .container-numero{
     text-align: center;
     height: 100%;
-    background: #f9a59a;
+    // background: #ffaaaa;
+    background: #61c788;
     color: black;
 }
 
@@ -134,27 +140,27 @@ img, .img-animal{
     height: 20%;
 }
 
+
+
 .div-numero{
-    font-size: 100px;
+    font-size: 120px;
     width: 100%;
     height: 20%;
 
     box-shadow: 0 0 15px rgb(255, 255, 255);
     border: 2px solid white;
     border-radius: 5px;
+
+    align-content: center;
 }
-#container-animal-responsive{
-    img{
-        display: block; 
-    }
-}
+
 
 
 
 @media (max-width: 376px ) {
     .div-numero{
-        padding-top: 20px;
         font-size: 70px;
+        align-content: center;
     }
     // .img-animal{
     //     width: 30%;
@@ -171,9 +177,8 @@ img, .img-animal{
 
 @media (max-height: 510px) or (max-width: 250px){
     .div-numero{
-        padding-top: 20px;
         font-weight: 700;
-        font-size: 50px;
+        font-size: 70px;
     }
     .img-animal{
         width: 10%;
@@ -181,9 +186,58 @@ img, .img-animal{
     .container-animal{
         display: none;
     }
-    #container-animal-responsive{
-        display: inline-block;
+   
+
+    #container-animal-responsive {
+        display: block;
+        height: 95vh;
+        background-image: url('../../assets/images/fondoSelva.jpg');
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        text-align: center; 
+        overflow: hidden; 
     }
+
+    #main-grid2 {
+        display: flex; 
+        flex-direction: column; /* Alinear los elementos verticalmente */
+        height: 100%; /* Ocupar toda la altura del contenedor */
+    }
+
+   #main-grid2 img {
+        max-width: 200px; /* Ancho máximo de la imagen */
+        max-height: 150px; /* Altura máxima de la imagen */
+        width: auto; /* Permite que la imagen se ajuste proporcionalmente al ancho máximo */
+        height: auto; /* Permite que la imagen se ajuste proporcionalmente a la altura máxima */
+    }
+
+    .fila {
+        flex: 1; /* Hace que las filas ocupen el espacio disponible */
+        display: flex; 
+        justify-content: space-around; /* Distribuir uniformemente los elementos */
+        align-items: center; /* Centrar los elementos verticalmente */
+    }
+
+    .celda {
+        flex: 1; /* Hace que las celdas ocupen el espacio disponible */
+        display: flex; 
+        justify-content: center; /* Centrar los elementos horizontalmente */
+        align-items: center; /* Centrar los elementos verticalmente */
+    }
+
+    .item-invertido {
+        max-width: 100%; /* Ajusta el ancho máximo al tamaño del contenedor */
+        max-height: 100%; /* Ajusta la altura máxima al tamaño del contenedor */
+        width: auto; /* Permite que la imagen se ajuste proporcionalmente al ancho máximo */
+        height: auto; /* Permite que la imagen se ajuste proporcionalmente a la altura máxima */
+
+        box-shadow: 0 0 15px #61c788;
+        border: 1px solid white;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
 }
 
 @media (max-height: 390px) {
@@ -219,76 +273,43 @@ img, .img-animal{
     #main-grid2
     {
         display: block;
-        height: 100%;
+        // height: 100%;
     }
 }
 
 @media (min-width: 300px) and (max-width: 499px)
 {
-    // #header-card
-    // {
-    //     height: 3rem;
-    //     margin-top: 0.5rem;
-    // }
-
+    // muestro vertical
     #main-grid
     {
         display: block;
     }
 
+    // escondo horizonal
     #main-grid2
     {
         display: none;
     }
 }
 
-#main-grid2
-{
-    width: 100%;
-    height: 95%;
-    text-align: center;
-    margin-top: -1rem;
-    background-image: url('../../assets/images/selva.jpg');
+
+
+
+.celda {
+  width: 40%;
+  padding: 5px;
 }
 
-.col-main-grid2
-{
-    width: 100%;
+
+.iluminar{
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    border-radius: 45%;
 }
 
-.item-invertido
-{
-    border-radius: 10px;
-    width: 40%;
-    height: auto;
-    margin-left: 50%;
-    margin-bottom: 50px;
-    box-shadow: 0 0 15px rgb(255, 255, 255);
-    border-radius: 5px;
-}
-
-#pos1,#pos2
-{
-    margin-left: 2%;
-}
-
-#pos3{
-    margin-left: 20%;
-}
-
-.celda
-{
-    align-items: center;
-    text-align: center;
-    width: 225px;
-    height: 95px;
-}
-
-.fila
-{
-    text-align: center;
-    align-items: center;
-}
+// .seleccionado {
+//     box-shadow: 0 0 15px #00ff2a;
+//     border-radius: 45%;
+// }
 
 
 

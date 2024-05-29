@@ -66,3 +66,36 @@ ion-input{
 ion-list{
     background:white;
 }
+
+#theme-selected-admin {
+    position: fixed;
+    top: 84%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}
+
+#theme-selected-moder
+{
+    position: fixed;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#theme-selected-invi
+{
+    position: fixed;
+    top: 84%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+}
+
+.larger-fab {
+  width: 80px; /* Ancho personalizado */
+  height: 80px; /* Alto personalizado */
+  font-size: 24px; /* Tamaño de la fuente personalizado */
+}
+
+.hidden-fabs {
+    display: none !important;
+}

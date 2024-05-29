@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AudioService } from './../services/audio.service';
 
 @Component({
   selector: 'app-splash-estatico',
@@ -7,13 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./splash-estatico.page.scss'],
 })
 export class SplashEstaticoPage implements OnInit {
+  constructor(
+    public router: Router
+    , private audioService: AudioService
+  ) {}
 
-  constructor(public router:Router) { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  onclick(){
+  onclick() {
+    this.audioService.onAudio('volver.mp3');
     this.router.navigate(['splash-animado']);
   }
 }

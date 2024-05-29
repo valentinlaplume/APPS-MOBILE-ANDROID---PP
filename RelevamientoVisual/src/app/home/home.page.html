@@ -1,17 +1,22 @@
-      
 <body id="body" scroll-y="false">
   <ion-grid id="main-grid">
     <ion-col>
       <ion-row class="row-main-grid">
-        <img src="../../assets/cosasLindas.jpeg" id="btnCosasLindas" (click)="onCosasLindas()"> 
-      </ion-row>
-    </ion-col>
-    <ion-col>
-      <ion-row class="row-main-grid">
-        <img  src="../../assets/cosasFeas.jpg" id="btnCosasFeas" (click)="onCosasFeas()"> 
+        <div class="img-container">
+          <img src="../../assets/cosasLindas.jpeg" id="btnCosasLindas" (click)="onCosasLindas()">
+          <div class="row-label-linda" (click)="onCosasLindas()">COSAS LINDAS</div>
+        </div>
       </ion-row>
     </ion-col>
 
+    <ion-col>
+      <ion-row class="row-main-grid">
+        <div class="img-container">
+          <img src="../../assets/cosasFeas.jpg" id="btnCosasFeas" (click)="onCosasFeas()">
+          <div class="row-label-fea" (click)="onCosasFeas()">COSAS FEAS</div>
+        </div>
+      </ion-row>
+    </ion-col>
   </ion-grid>
 
   <!-- fab placed to the bottom start -->
@@ -22,13 +27,20 @@
   </ion-fab>
 
   <!-- fab placed to the bottom start -->
-  <ion-fab class="redireccionador" vertical="bottom" horizontal="end" slot="fixed" (click)="onGraficos()">
+  <ion-fab class="redireccionador" vertical="top" horizontal="end" slot="fixed" (click)="onGraficosCosasLindas()">
     <ion-fab-button color="danger">
-      <ion-icon name="cellular"></ion-icon>
+      <ion-icon name="trending-up-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-   <!-- fab placed to the bottom start -->
+  <!-- fab placed to the bottom start -->
+  <ion-fab class="redireccionador" vertical="bottom" horizontal="end" slot="fixed" (click)="onGraficos()">
+    <ion-fab-button color="danger">
+      <ion-icon name="trending-down-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- fab placed to the bottom start -->
   <ion-fab class="redireccionador" vertical="bottom" horizontal="start" slot="fixed" (click)="onCosasPropias()">
     <ion-fab-button color="danger">
       <ion-icon name="book"></ion-icon>

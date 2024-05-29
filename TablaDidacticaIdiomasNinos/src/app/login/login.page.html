@@ -12,53 +12,73 @@
                         <ion-img  class="img" src="../../assets/aprende.png"></ion-img>
                     </ion-col>
                 </ion-row>
+
                 <ion-row>
                     <ion-col>
-                        <h1 color="ligth" style="color:white">Iniciar sesión</h1>
+                        <h1 color="ligth">Iniciar Sesión</h1>
                     </ion-col>
                 </ion-row>
                 <ion-row>
                     <ion-col>
-                        <ion-list> 
+                        <ion-list > 
                             <ion-item>
-                                <ion-icon name="person-outline" class="icon-login"></ion-icon>
-                                <ion-input  color="ligth" style="color:white"
-                                [(ngModel)]="this.email" 
-                                [ngModelOptions]="{standalone: true}"
-                                name="email" type="text" required placeholder="Correo electrónico"></ion-input>
-                            </ion-item>
-                            <br />
-                            <ion-item>
-                                <ion-icon name="lock-closed-outline" class="icon-login"></ion-icon>
-                                <ion-input color="ligth" style="color:white"
-                                [(ngModel)]="this.password" 
-                                [ngModelOptions]="{standalone: true}"
-                                name="password" type="password" required placeholder="Contraseña"></ion-input>
-                            </ion-item>
+                            <ion-icon name="person-outline" class="icon-login"></ion-icon>
+                            <ion-input color="ligth" 
+                                    [(ngModel)]="this.email" 
+                                    [ngModelOptions]="{standalone: true}"
+                                    name="email" 
+                                    type="text" 
+                                    required 
+                                    placeholder="Correo electrónico"
+                                    [ngClass]="{'input-error': emailError}"></ion-input>
+                        </ion-item>
+                        <br />
+                        <ion-item>
+                            <ion-icon name="lock-closed-outline" class="icon-login"></ion-icon>
+                            <ion-input color="ligth"
+                                    [(ngModel)]="this.password" 
+                                    [ngModelOptions]="{standalone: true}"
+                                    name="password" 
+                                    type="password" 
+                                    required 
+                                    placeholder="Contraseña"
+                                    [ngClass]="{'input-error': passwordError}"></ion-input>
+                        </ion-item>
+
                         </ion-list>
                     </ion-col>
                 </ion-row>
+                <ion-row *ngIf="muestroSpinner" class="item-spinner">
+                    <ion-col>
+                        <ion-spinner color="ligth" name="crescent"></ion-spinner>
+                    </ion-col>
+                </ion-row>
                 <ion-row>
                     <ion-col>
-                        <ion-button [disabled]="!email || !password" color="dark" type="submit" fill="solid" expand="full" (click)="onLogin()">
-                            Iniciar Sesión
+                        <ion-button [disabled]="!email || !password" color="dark" type="submit" fill="solid" expand="full" (click)="onSpinnerLogin()">
+                            Ingresar
                         </ion-button>
                     </ion-col>
                 </ion-row>
             </ion-grid>
             <div>
+
                 <ion-item>
-                    <ion-checkbox slot="start" (click)="onAdmin()"></ion-checkbox>
-                    <ion-label >Admin</ion-label>
+                    <ion-title><ion-icon name="person-outline" style="margin-left: 10px;"></ion-icon>Accesos<ion-icon name="person-outline" style="margin-left: 10px;"></ion-icon></ion-title>
                 </ion-item>
                 <ion-item>
-                    <ion-checkbox slot="start" (click)="onTester()"></ion-checkbox>
-                    <ion-label >Tester</ion-label>
+                    <ion-checkbox color="ligth" slot="start" (ionChange)="onAdmin($event)" [checked]="isAdminSelected"></ion-checkbox>
+                    <ion-label>Administrador</ion-label>
                 </ion-item>
                 <ion-item>
-                    <ion-checkbox slot="start" (click)="onInvitado()"></ion-checkbox>
-                    <ion-label >Invitado</ion-label>
+                    <ion-checkbox color="ligth" slot="start" (ionChange)="onTester($event)" [checked]="isTesterSelected"></ion-checkbox>
+                    <ion-label>Tester</ion-label>
                 </ion-item>
+                <ion-item>
+                    <ion-checkbox color="ligth" slot="start" (ionChange)="onInvitado($event)" [checked]="isInvitadoSelected"></ion-checkbox>
+                <ion-label>Invitado</ion-label>
+                </ion-item>
+
          
                 <!-- <ion-fab vertical=""   horizontal="start" edge slot="fixed" id="theme-selected">
                     <ion-fab-button color="dark"   id="theme-showed">Accesos​​</ion-fab-button>

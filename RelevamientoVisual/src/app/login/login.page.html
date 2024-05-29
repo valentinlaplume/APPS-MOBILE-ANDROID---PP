@@ -8,7 +8,7 @@
   <br>
 
   <form id="formulario">
-    <ion-item style="margin-top: 15px;border-radius: 10px;" color="medium" lines="full">
+    <ion-item style="margin-top: 20px;border-radius: 10px;" color="medium" lines="full">
       <ion-label position="floating">Correo electrónico</ion-label>
       <ion-input type="email" 
       [(ngModel)]="this.email" 
@@ -16,7 +16,7 @@
       required placeholder="ejemplo@ejemplo.com"></ion-input>
     </ion-item>
     
-    <ion-item style="margin-top: 15px;border-radius: 10px;" color="medium" lines="full">
+    <ion-item style="margin-top: 20px;border-radius: 10px;" color="medium" lines="full">
       <ion-label position="floating" >Contraseña</ion-label>
       <ion-input type="password" 
       [(ngModel)]="this.password" 
@@ -24,7 +24,7 @@
       required placeholder=""></ion-input>
     </ion-item>
     
-    <ion-row *ngIf="validaLogin != ''" class="row-error">
+    <ion-row *ngIf="validaLogin != ''" class="row-error" style="margin-top: 20px;">
       <ion-col class="col-error">
         <label class="lbl-error" color="danger" mode="md">{{validaLogin}}</label>
       </ion-col>
@@ -38,19 +38,19 @@
       </ion-col>
     </ion-row>
     
-    <ion-row>
+    <ion-row style="margin-top: 20!important">
       <ion-col>
-        <ion-button style="color:black;margin-bottom: 10px; height: 50px;" [disabled]="!email || !password" color="danger" (click)="onSpinnerLogin()" expand="block">
+        <ion-button style="color:black; height: 50px;" [disabled]="!email || !password" color="danger" (click)="onSpinnerLogin()" expand="block">
           Iniciar sesión
         </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col align="center" id="col-accesos">
-        <ion-title style="margin: 15px 0px;">ACCESOS:</ion-title>
-        <ion-button color="medium" class="btn-acceso" (click)="onLoginUsuarioAdministrador()" >Administrador</ion-button>
-        <ion-button color="medium" class="btn-acceso" (click)="onLoginUsuarioModerador()" >Tester</ion-button>
-        <ion-button color="medium" class="btn-acceso" (click)="onLoginUsuarioComun()" >Invitado</ion-button>
+        <ion-title style="margin: 10x 0px;">ACCESOS:</ion-title>
+        <ion-button color="medium" class="btn-acceso" (click)="onLoginUsuarioAdministrador()" >Administrador<ion-icon name="person-outline" style="margin-left: 10px;"></ion-icon></ion-button>
+        <ion-button color="medium" class="btn-acceso" (click)="onLoginUsuarioModerador()" >Tester<ion-icon name="person-outline" style="margin-left: 10px;"></ion-icon></ion-button>
+        <ion-button color="medium" class="btn-acceso" (click)="onLoginUsuarioComun()" >Invitado<ion-icon name="person-outline" style="margin-left: 10px;"></ion-icon></ion-button>
       </ion-col>
     </ion-row>
     

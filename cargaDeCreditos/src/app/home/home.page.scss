@@ -1,7 +1,7 @@
 #body
 {
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 11%, rgba(231,231,231,1) 28%, rgba(0,142,255,1) 100%);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 1%, rgba(231,231,231,1) 1%, rgba(0,142,255,1) 100%);
     text-align: center;
 }
 
@@ -31,13 +31,14 @@ ion-toolbar{
     padding: 30px;
     border-radius: 20px;
     background: #232f8b;
+    height: 400px;
 }
 .label-saldo{
     padding-top: 20px;
     display: block;
     color: rgb(255, 255, 255);
     font-weight: 700;
-    font-size: 30px;
+    font-size: 50px;
 }
 .label-saldo-monto{
     display: block;
@@ -73,6 +74,7 @@ ion-toolbar{
     left: 0;
     right: 0;
     margin: auto;
+    font-size: 20px;
 }
 
 .item-spinner{

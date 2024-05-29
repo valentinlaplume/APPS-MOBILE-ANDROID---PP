@@ -13,20 +13,40 @@ import { stringLength } from '@firebase/util';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public email:string='';
-  public password:string='';
+  muestroSpinner: boolean = false;
+  public email: string = '';
+  public password: string = '';
 
-  public validaLogin:string='';
-  public validaEmail:string='';
-  public validaPass:string='';
-  
+  public validaLogin: string = '';
+  emailError: boolean = false;
+  passwordError: boolean = false;
+
+  isAdminSelected: boolean = false;
+  isTesterSelected: boolean = false;
+  isInvitadoSelected: boolean = false;
+
   // private validator: ValidatorService = new ValidatorService();
 
-  constructor(
-    private authSvc: AuthService, 
-    private router: Router) {}
+  constructor(private authSvc: AuthService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onSpinnerLogin() {
+    this.validaLogin = '';
+    this.muestroSpinner = true;
+    setTimeout(() => {
+      this.onLogin();
+      this.muestroSpinner = false;
+    }, 1500);
+  }
+
+  setearCamposLogin() {
+    this.email = '';
+    this.password = '';
+    this.isAdminSelected = false;
+    this.isTesterSelected = false;
+    this.isInvitadoSelected = false;
+    this.validaLogin = '';
   }
 
   async onLogin() {
@@ -34,56 +54,37 @@ export class LoginPage implements OnInit {
       const user = await this.authSvc.login(this.email, this.password);
       console.log(user);
       if (user) {
-        this.email = "";
-        this.password = "";
+        this.setearCamposLogin();
+        this.removeErrorClasses();
+
         let audio = new Audio();
         audio.src = '../../assets/sonidos/on.mp3';
         audio.load();
         audio.play();
-        this.validaLogin = '';
+
         this.router.navigate(['../home']);
-        // const isVerified = this.authSvc.isEmailVerified(user);
-        // console.log('isEmailVerified -> ', isVerified);
-        // this.redirectUser(isVerified);
-      }
-      else{
-        let audio = new Audio();
-        audio.src = '../../assets/sonidos/error.ogg';
-        audio.load();
-        audio.play();
-        this.validaLogin = "Verifique que el mail y la contraseña sean correctas";
+      } else {
+        this.handleLoginError();
       }
     } catch (error) {
       console.log('Error->', error);
+      this.handleLoginError();
     }
   }
 
-  async onLoginGoogle() {
-    try {
-      const user = await this.authSvc.loginGoogle();
-      console.log(user);
-      if (user) {
-        this.email = "";
-        this.password = "";
-        let audio = new Audio();
-        audio.src = '../../assets/sonidos/on.mp3';
-        audio.load();
-        audio.play();
-        this.validaLogin = '';
-        const isVerified = this.authSvc.isEmailVerified(user);
-        console.log('isEmailVerified -> ', isVerified);
-        this.redirectUser(isVerified);
-      }
-      else{
-        let audio = new Audio();
-        audio.src = '../../assets/sonidos/error.ogg';
-        audio.load();
-        audio.play();
-        this.validaLogin = "Verifique que el mail y la contraseña sean correctas";
-      }
-    } catch (error) {
-      console.log('Error->', error);
-    }
+  removeErrorClasses() {
+    this.emailError = false;
+    this.passwordError = false;
+  }
+
+  handleLoginError() {
+    let audio = new Audio();
+    audio.src = '../../assets/sonidos/error.ogg';
+    audio.load();
+    audio.play();
+    this.validaLogin = 'Verifique que el mail y la contraseña sean correctas';
+    this.emailError = true;
+    this.passwordError = true;
   }
 
   private redirectUser(isVerified: boolean): void {
@@ -94,28 +95,40 @@ export class LoginPage implements OnInit {
     }
   }
 
-  onSonidoIngresoVolver(){
+  onSonidoIngresoVolver() {
     let audio = new Audio();
     audio.src = '../../assets/sonidos/volver.mp3';
     audio.load();
     audio.play();
   }
-  
-  public onAdmin(){
-    this.onSonidoIngresoVolver();
-    this.email = "admin@admin.com";
-    this.password = "111111";
+
+  public onAdmin(event: any) {
+    if (event.detail.checked) {
+      this.isAdminSelected = true;
+      this.isTesterSelected = false;
+      this.isInvitadoSelected = false;
+      this.email = 'admin@admin.com';
+      this.password = '111111';
+    }
   }
 
-  public onTester(){
-    this.onSonidoIngresoVolver();
-    this.email = "tester@tester.com";
-    this.password = "555555";
+  public onTester(event: any) {
+    if (event.detail.checked) {
+      this.isAdminSelected = false;
+      this.isTesterSelected = true;
+      this.isInvitadoSelected = false;
+      this.email = 'tester@tester.com';
+      this.password = '555555';
+    }
   }
 
-  public onInvitado(){
-    this.onSonidoIngresoVolver();
-    this.email = "invitado@invitado.com";
-    this.password = "222222";
+  public onInvitado(event: any) {
+    if (event.detail.checked) {
+      this.isAdminSelected = false;
+      this.isTesterSelected = false;
+      this.isInvitadoSelected = true;
+      this.email = 'invitado@invitado.com';
+      this.password = '222222';
+    }
   }
 }

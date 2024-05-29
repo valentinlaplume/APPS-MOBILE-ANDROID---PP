@@ -1,6 +1,7 @@
 
-<app-splashscreen *ngIf="cargarTerminada == false"></app-splashscreen>
-<ion-app *ngIf="cargarTerminada">
+<app-splashscreen-estatico *ngIf="cargarTerminada == 0"></app-splashscreen-estatico>
+<app-splashscreen *ngIf="cargarTerminada == 1"></app-splashscreen>
+<ion-app *ngIf="cargarTerminada == 2">
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
 

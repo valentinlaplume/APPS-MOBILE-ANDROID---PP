@@ -138,17 +138,17 @@ export class AuthService {
     console.log('getError ->', msj);
     switch(msj){
       case 'auth/user-not-found':
-        return 'No existe ningún registro de usuario que corresponda al correo electrónico indicado.';
+        return 'No existe ningún registro de usuario que corresponda al correo electrónico indicado';
       case 'auth/email-already-in-use':
-        return 'Otro usuario ya está utilizando el correo electrónico indicado.';
+        return 'Otro usuario ya está utilizando el correo electrónico indicado';
       case 'auth/invalid-email':
-        return "El formato del correo electrónico no es correcto.";
+        return "El formato del correo electrónico no es correcto";
       case 'auth/invalid-password':
-        return "El valor que se proporcionó para la contraseña no es válido. Debe contener al menos seis caracteres.";
+        return "El valor que se proporcionó para la contraseña no es válido. Debe contener al menos seis caracteres";
       case 'auth/invalid-phone-number':
-      return "El valor que se proporcionó para el número de celular no es válido. Debe no estar vacío y que cumpla con el estándar E.164.";
+      return "El valor que se proporcionó para el número de celular no es válido. Debe no estar vacío y que cumpla con el estándar E.164";
       case 'auth/wrong-password':
-      return 'contraseña incorrecta.';
+      return 'Contraseña incorrecta';
     }
     return '';
   }

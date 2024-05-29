@@ -8,21 +8,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  muestroSpinner: boolean = false;
+  public email: string = '';
+  public password: string = '';
 
-  muestroSpinner:boolean = false;
-  public email:string='';
-  public password:string='';
+  public validaLogin: string = '';
+  isInputFocused = false;
 
-  public validaLogin:string='';
-  
-  constructor(
-    private authSvc: AuthService, 
-    private router: Router) {}
-
-  ngOnInit() {
+  onFocus() {
+    console.log("focus")
+    this.isInputFocused = true;
   }
 
-  onSpinnerLogin(){
+  onBlur() {
+    console.log('blur');
+    this.isInputFocused = false;
+  }
+
+  constructor(private authSvc: AuthService, private router: Router) {}
+
+  ngOnInit() {}
+
+  onSpinnerLogin() {
     this.validaLogin = '';
     this.muestroSpinner = true;
     setTimeout(() => {
@@ -40,10 +47,12 @@ export class LoginPage implements OnInit {
         const isVerified = this.authSvc.isEmailVerified(user);
         console.log('isEmailVerified -> ', isVerified);
         this.redirectUser(isVerified);
-      }
-      else{
+      } else {
         this.validaLogin = this.authSvc.msjError;
-        if(this.validaLogin == '') { this.validaLogin = "Verifique que el mail y la contraseña sean correctas";}
+        if (this.validaLogin == '') {
+          this.validaLogin =
+            'Verifique que el mail y la contraseña sean correctas';
+        }
       }
     } catch (error) {
       console.log('Error->', error);
@@ -59,10 +68,12 @@ export class LoginPage implements OnInit {
         const isVerified = this.authSvc.isEmailVerified(user);
         console.log('isEmailVerified -> ', isVerified);
         this.redirectUser(isVerified);
-      }
-      else{
+      } else {
         this.validaLogin = this.authSvc.msjError;
-        if(this.validaLogin == '') { this.validaLogin = "Verifique que el mail y la contraseña sean correctas";}
+        if (this.validaLogin == '') {
+          this.validaLogin =
+            'Verifique que el mail y la contraseña sean correctas';
+        }
       }
     } catch (error) {
       console.log('Error->', error);
@@ -71,10 +82,10 @@ export class LoginPage implements OnInit {
 
   private redirectUser(isVerified: boolean): void {
     this.validaLogin = '';
-    this.router.navigate(['../home']).then(e =>{
-      this.email = "";
-      this.password = "";
-      this.validaLogin = "";
+    this.router.navigate(['../home']).then((e) => {
+      this.email = '';
+      this.password = '';
+      this.validaLogin = '';
     });
     // if (isVerified) {
     //   this.router.navigate(['../home']);
@@ -83,19 +94,21 @@ export class LoginPage implements OnInit {
     // }
   }
 
-  public onLoginUsuarioAdministrador(){
-    this.email = "admin@admin.com";
-    this.password = "111111";
+  public onLoginUsuarioAdministrador() {
+    this.validaLogin = '';
+    this.email = 'admin@admin.com';
+    this.password = '111111';
   }
 
-  public onLoginUsuarioModerador(){
-    this.email = "tester@tester.com";
-    this.password = "555555";
+  public onLoginUsuarioModerador() {
+    this.validaLogin = '';
+    this.email = 'tester@tester.com';
+    this.password = '555555';
   }
 
-  public onLoginUsuarioComun(){
-    this.email = "invitado@invitado.com";
-    this.password = "222222";
+  public onLoginUsuarioComun() {
+    this.validaLogin = '';
+    this.email = 'invitado@invitado.com';
+    this.password = '222222';
   }
-
 }

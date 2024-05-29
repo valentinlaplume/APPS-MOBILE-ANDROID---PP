@@ -10,7 +10,10 @@ export class SplashPage implements OnInit {
 
   constructor(public router: Router) {
     setTimeout(() => {
-      console.log("hola");
+      let audio = new Audio();
+      audio.src = '../../assets/sonidos/volver.mp3';
+      audio.load();
+      audio.play();
       this.router.navigateByUrl('login');
     }, 3000);
   }

@@ -15,6 +15,7 @@ import { Vibration } from '@awesome-cordova-plugins/vibration/ngx';
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
 import { DeviceMotion, DeviceMotionAccelerationData } from '@awesome-cordova-plugins/device-motion/ngx';
 import {  FormsModule  } from '@angular/forms';
+import { SplashscreenEstaticoComponent } from './splashscreen-estatico/splashscreen-estatico.component';
 
 const appRoutes:Routes=[
 
@@ -25,7 +26,7 @@ const appRoutes:Routes=[
 
 @NgModule({
   //Aca van los modulos
-  declarations: [AppComponent, LogedComponent,SplashscreenComponent],
+  declarations: [AppComponent, LogedComponent,SplashscreenComponent, SplashscreenEstaticoComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, RouterModule.forRoot(appRoutes), FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Flashlight, Vibration, ScreenOrientation, DeviceMotion],
   bootstrap: [AppComponent],

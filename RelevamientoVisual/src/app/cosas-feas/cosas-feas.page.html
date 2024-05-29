@@ -22,10 +22,10 @@
         <label class="label-fecha">{{photo.fecha}} - {{photo.hora}}</label>
         <ion-button *ngIf="photo.likes.indexOf(this.authService.emailUser) == -1"
         color="warning" expand="block" (click)="votar(photo, true)"
-        >VOTAR</ion-button>
+        >VOTAR<ion-icon name="heart-outline" style="margin-left: 10px;"></ion-icon></ion-button>
         <ion-button *ngIf="photo.likes.indexOf(this.authService.emailUser) != -1"
         color="medium" expand="block" (click)="votar(photo, false)"
-        >QUITAR VOTO</ion-button>
+        >QUITAR VOTO<ion-icon name="heart-dislike-outline" style="margin-left: 10px;"></ion-icon></ion-button>
       </ion-col>
     </ion-row>
     <!-- <ion-row>

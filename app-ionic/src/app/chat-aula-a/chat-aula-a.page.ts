@@ -10,7 +10,8 @@ import { IonContent } from '@ionic/angular';
   templateUrl: './chat-aula-a.page.html',
   styleUrls: ['./chat-aula-a.page.scss'],
 })
-export class ChatAulaAPage implements OnInit, OnDestroy {
+export class ChatAulaAPage implements OnInit, OnDestroy 
+{
   @ViewChild('content', { static: false }) content: IonContent;
   
   dummyList: any;

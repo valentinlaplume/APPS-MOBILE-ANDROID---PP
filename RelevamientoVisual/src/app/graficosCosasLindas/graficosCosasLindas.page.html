@@ -1,0 +1,66 @@
+
+<body id="body">
+  <ion-header slot="fixed">
+    <ion-toolbar color="warning">
+      <ion-title >TOP 3 + VOTADOS</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- <ion-item  style="background-color: #260d0d;" *ngIf="muestroSpinner">
+  </ion-item> -->
+  <ion-card style="margin-top: 40px; border-radius: 10px;">
+    <div id="graphs" hidden style="margin-top: 15px;">
+      <h4>COSAS MÁS LINDAS</h4>
+      <ion-row style="width: 100%;background-color: #ffffff; font-weight: bold;">
+        <ion-col>
+          <div class="chart-wrapper">
+            <canvas  id="pieChart" baseChart
+              [datasets]="pieChartData"  
+              [labels]="pieChartLabels" 
+              [options]="pieChartOptions"
+              [legend]="pieChartLegend" 
+              [type]="pieChartType">
+            </canvas>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <!-- <h4>COSAS MÁS FEAS</h4>
+      <ion-row style="width: 100%; background-color: #ffffff; font-weight: bold;">
+        <ion-col>
+          <div class="chartjs-block">
+            <canvas id="barChart" baseChart 
+              [datasets]="barChartData" 
+              [labels]="barChartLabels" 
+              [options]="barChartOptions" 
+              [legend]="barChartLegend"
+              [type]="barChartType">
+            </canvas>
+          </div>
+        </ion-col>
+      </ion-row> -->
+    </div>
+
+    <ion-row offset="1" size=10>
+      <div style="width: 100%; height: 2px; background-color: azure;" ></div>
+    </ion-row>
+
+    <ion-row hidden>
+      <ion-col>
+        <img id="fotoCorrespondiente">
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  
+</body>
+
+<ion-fab class="redireccionador" vertical="top" horizontal="start" slot="fixed" (click)="onVolver()">
+  <ion-fab-button color="danger">
+    <ion-icon name="arrow-back-sharp"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-spinner style="left: 0px; margin:auto;background-color: 
+#260d0d; padding:10%" color="warning" *ngIf="muestroSpinner" name="crescent"></ion-spinner>

@@ -24,7 +24,6 @@
     background-color: #000000;
     margin-top: 1rem;
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     text-align: center;
     width: 80%;
@@ -60,7 +59,7 @@
     margin-top: 1rem;
     margin-right: 5px;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 
 #selector-magico
@@ -71,7 +70,7 @@
     width: 80%;
     margin-right: 5px;
     font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 
 #btnIngresar, #btnRegistrarse
@@ -82,13 +81,13 @@
     width: 80%;
     margin-right: 5px;
     font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 
 #txtError 
 {
   margin-top: 15px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   background: rgb(255, 0, 0);
   padding: 15px;
   border-radius: 20px;

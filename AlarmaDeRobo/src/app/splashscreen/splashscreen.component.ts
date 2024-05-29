@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-splashscreen',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashscreenComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appComponent: AppComponent) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.appComponent.startTimer();
+  }
 
+ 
 }

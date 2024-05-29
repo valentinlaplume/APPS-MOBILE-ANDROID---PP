@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
+import { AudioService } from './../services/audio.service';
 
 @Component({
   selector: 'app-login',
@@ -8,21 +9,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  muestroSpinner: boolean = false;
+  public email: string = '';
+  public password: string = '';
 
-  muestroSpinner:boolean = false;
-  public email:string='';
-  public password:string='';
+  public validaLogin: string = '';
 
-  public validaLogin:string='';
-  
   constructor(
-    private authSvc: AuthService, 
-    private router: Router) {}
+    private authSvc: AuthService,
+    private router: Router,
+    private audioService: AudioService
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onSpinnerLogin(){
+  onSpinnerLogin() {
     this.validaLogin = '';
     this.muestroSpinner = true;
     setTimeout(() => {
@@ -34,16 +35,21 @@ export class LoginPage implements OnInit {
   async onLogin() {
     try {
       const user = await this.authSvc.login(this.email, this.password);
-      console.log(user);
-      if (user != null && user != undefined) {
+      //console.log(user);
+      if (user != null && user != undefined) 
+      {
+        this.audioService.onAudio(this.audioService.enviar);
         this.validaLogin = '';
         const isVerified = this.authSvc.isEmailVerified(user);
-        console.log('isEmailVerified -> ', isVerified);
         this.redirectUser(isVerified);
-      }
-      else{
+      } 
+      else {
+        this.audioService.onAudio('error.ogg');
         this.validaLogin = this.authSvc.msjError;
-        if(this.validaLogin == '') { this.validaLogin = "Verifique que el mail y la contraseña sean correctas";}
+        if (this.validaLogin == '') 
+        {
+          this.validaLogin = 'Verifique que el mail y la contraseña sean correctas';
+        }
       }
     } catch (error) {
       console.log('Error->', error);
@@ -54,15 +60,19 @@ export class LoginPage implements OnInit {
     try {
       const user = await this.authSvc.loginGoogle();
       console.log(user);
-      if (user != null && user != undefined) {
+      if (user != null && user != undefined) 
+        {
+        this.audioService.onAudio(this.audioService.enviar);
         this.validaLogin = '';
         const isVerified = this.authSvc.isEmailVerified(user);
         console.log('isEmailVerified -> ', isVerified);
         this.redirectUser(isVerified);
-      }
-      else{
+      } else {
         this.validaLogin = this.authSvc.msjError;
-        if(this.validaLogin == '') { this.validaLogin = "Verifique que el mail y la contraseña sean correctas";}
+        if (this.validaLogin == '') {
+          this.validaLogin =
+            'Verifique que el mail y la contraseña sean correctas';
+        }
       }
     } catch (error) {
       console.log('Error->', error);
@@ -71,10 +81,10 @@ export class LoginPage implements OnInit {
 
   private redirectUser(isVerified: boolean): void {
     this.validaLogin = '';
-    this.router.navigate(['../home']).then(e =>{
-      this.email = "";
-      this.password = "";
-      this.validaLogin = "";
+    this.router.navigate(['../home']).then((e) => {
+      this.email = '';
+      this.password = '';
+      this.validaLogin = '';
     });
     // if (isVerified) {
     //   this.router.navigate(['../home']);
@@ -83,18 +93,18 @@ export class LoginPage implements OnInit {
     // }
   }
 
-  public onLoginUsuarioAdministrador(){
-    this.email = "admin@admin.com";
-    this.password = "111111";
+  public onLoginUsuarioAdministrador() {
+    this.email = 'admin@admin.com';
+    this.password = '111111';
   }
 
-  public onLoginUsuarioModerador(){
-    this.email = "tester@tester.com";
-    this.password = "555555";
+  public onLoginUsuarioModerador() {
+    this.email = 'tester@tester.com';
+    this.password = '555555';
   }
 
-  public onLoginUsuarioComun(){
-    this.email = "invitado@invitado.com";
-    this.password = "222222";
+  public onLoginUsuarioComun() {
+    this.email = 'invitado@invitado.com';
+    this.password = '222222';
   }
 }
